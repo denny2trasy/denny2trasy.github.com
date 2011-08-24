@@ -1,0 +1,8 @@
+---
+layout: default
+title: What is that
+---
+
+{{ page.title }}
+
+I cannot remember that, please forgive me!

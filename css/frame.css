@@ -31,15 +31,22 @@ a:hover {
 	height: 64px;
 }
 
+#header p {
+	margin: 0;
+	padding-top: 30px;
+	padding-left: 30px;
+	float: left;	
+}
+
 #header h1 {
 	margin: 0;
-	padding-top: 10px;
+	padding-top: 5px;
 	padding-left: 30px;
 	float: left;
 }
 #header a {
 	margin: 0;
-	padding: 20px 32px;
+	padding: 23px 10px;
 	float: right;
 	color: #03c;
 }
