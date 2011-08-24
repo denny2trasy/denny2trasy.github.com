@@ -1,0 +1,16 @@
+layout: default
+title: What is that
+-
+
+{{Page.title}}
+
+24 Aug 2011 – Denny Li
+
+These days, there are some important things happened to me and make me very nervous.
+
+What should I do?
+
+find find find ...
+
+
+
