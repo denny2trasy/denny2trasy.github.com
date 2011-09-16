@@ -14,41 +14,48 @@ Bellow is my ruby code for this. I have three method.
 
 _Loop_
 
-<ruby>
-	x,y = 0,1
-	puts "1"
-	(1..6).each do |i|
-		z = x + y
-		puts z
-		x = y
-		y = z
-	end
-</ruby>
+
+<div class="highlight"><pre>	<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+	<span class="nb">puts</span> <span class="s2">&quot;1&quot;</span>
+	<span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+		<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+		<span class="nb">puts</span> <span class="n">z</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
+		<span class="n">y</span> <span class="o">=</span> <span class="n">z</span>
+	<span class="k">end</span>
+</pre></div>
+
+
+
 
 _Recursion_
 
-bc.
-	def f(x)
-		return 1 if x == 1 or x == 2
-		return f(x-1) + f(x-2)
-	end
 
-	(1..7).each do |i|
-		puts f(i)
-	end
+<div class="highlight"><pre>	<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span>
+		<span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+	<span class="k">end</span>
+
+	<span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+		<span class="nb">puts</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+	<span class="k">end</span>
+</pre></div>
+
+
 
 
 
 _Yield and Block_
 
-<code>
-	def fibonacii(max)
-		f1,f2 = 1,1
-		while f1 >= max
-			yield f1
-			f1,f2 = f2,f1+f2
-		end
-	end
 
-	fibonacii(35) {|f| puts f}
-</code>
+<div class="highlight"><pre>	<span class="k">def</span> <span class="nf">fibonacii</span><span class="p">(</span><span class="n">max</span><span class="p">)</span>
+		<span class="n">f1</span><span class="p">,</span><span class="n">f2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span>
+		<span class="k">while</span> <span class="n">f1</span> <span class="o">&gt;=</span> <span class="n">max</span>
+			<span class="k">yield</span> <span class="n">f1</span>
+			<span class="n">f1</span><span class="p">,</span><span class="n">f2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">,</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span>
+		<span class="k">end</span>
+	<span class="k">end</span>
+
+	<span class="n">fibonacii</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">f</span><span class="p">}</span>
+</pre></div>
+
