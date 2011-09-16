@@ -1,0 +1,54 @@
+---
+layout: default
+title: Fibanocci Function
+---
+
+{{ page.title }}
+
+p. As we known, fibanocci function f(x) = f(x-1) + f(x-2) when x >1, else x = 0, 1, it is f(x) = 1.
+Bellow is my ruby code for this. I have three method.
+
+* loop
+* recursion
+* block and yield
+
+_Loop_
+
+<ruby>
+	x,y = 0,1
+	puts "1"
+	(1..6).each do |i|
+		z = x + y
+		puts z
+		x = y
+		y = z
+	end
+</ruby>
+
+_Recursion_
+
+bc.
+	def f(x)
+		return 1 if x == 1 or x == 2
+		return f(x-1) + f(x-2)
+	end
+
+	(1..7).each do |i|
+		puts f(i)
+	end
+
+
+
+_Yield and Block_
+
+<code>
+	def fibonacii(max)
+		f1,f2 = 1,1
+		while f1 >= max
+			yield f1
+			f1,f2 = f2,f1+f2
+		end
+	end
+
+	fibonacii(35) {|f| puts f}
+</code>
