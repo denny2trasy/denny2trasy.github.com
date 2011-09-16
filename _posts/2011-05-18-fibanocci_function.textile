@@ -3,7 +3,7 @@ layout: default
 title: Fibanocci Function
 ---
 
-{{ page.title }}
+<h2>{{ page.title }}</h2>
 
 p. As we known, fibanocci function f(x) = f(x-1) + f(x-2) when x >1, else x = 0, 1, it is f(x) = 1.
 Bellow is my ruby code for this. I have three method.

@@ -15,18 +15,18 @@ h1 {
 
 a  {color: #03c}
 a:hover {
-  background-color: #468ceb;
+  background-color: #d0e2f8;
   color: white;
   text-decoration: none;
 }
 
+/*468ceb*/
 
-
-/* header  #e0e0e0*/
+/* header  #e0e0e0  whiteSmoke */
 
 #header {
 	margin: 10px auto 0;
-	background-color: whiteSmoke;
+	background-color: #468ceb;
 	width: 850px;
 	height: 64px;
 }
