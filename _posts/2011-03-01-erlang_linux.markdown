@@ -91,6 +91,7 @@ path为绝对路径，指导程序的启动路径
     ]
 }
 
+
 modules -- 应用程序执行完start后，要运行的start的module列表
 
 mod -- 应用程序的入口，这个module的start stop脚本
