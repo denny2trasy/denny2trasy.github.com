@@ -1,6 +1,8 @@
 ---
 layout: default
 title: English Breakfast
+categories: [English, Exercise]
+comments: true
 ---
 
 # {{page.title}}

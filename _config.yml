@@ -1,3 +1,8 @@
+safe:   true
+auto:   true
+lsi:    true
 markdown: rdiscount
 pygments: true
-paginate: 20
+paginate: 2
+
+layout: "test"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: carrington
 title: Erlang Study
 ---
 

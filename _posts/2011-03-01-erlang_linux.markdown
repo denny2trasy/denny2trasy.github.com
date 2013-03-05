@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: rundown
 title: Erlang Linux
 ---
 

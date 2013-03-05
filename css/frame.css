@@ -1,11 +1,15 @@
 body {
-  margin: 0;
+/*  margin: 0;
   margin-bottom: 25px;
   padding: 0;
-/*  background-color: #f0f0f0; 0cc*/
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
   font-size: 13px;
-  color: #333;
+  color: #333;*/
+
+background: #fff;
+color: #51555c;
+font: 12px/18px helvetica, arial, sans-serif;
+
 }
 
 h1 {
@@ -20,16 +24,43 @@ a:hover {
   text-decoration: none;
 }
 
-/*468ceb*/
+p {
+	margin-bottom: 18px;
+}
 
-/* header  #e0e0e0  whiteSmoke */
+/* header*/
 
 #header {
-	margin: 10px auto 0;
-	background-color: #468ceb;
-	width: 850px;
-	height: 64px;
+	background-image: url(../images/gradient-dark.png);
+	background-color: #51555c;
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	color: #cecfd1;
+	min-width: 980px;
+	height: 100px;
 }
+
+#header .wrapper {
+	background-image: url(../images/texture-dark.png);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	padding: 13px 10px 10px;
+	clear: both;
+	margin: 0 auto;
+	width: 960px;
+}
+
+.nav {
+	background: transparent;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+
+
 
 #header p {
 	margin: 0;
