@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: post
 title: English Learning 1
+category: English
 ---
 
 # {{page.title}}

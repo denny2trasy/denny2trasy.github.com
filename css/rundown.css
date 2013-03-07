@@ -651,7 +651,24 @@ body{
 
 .post-head h2 a:hover{
 	color:#3879d9;
-}	
+}
+
+.alt-font{
+	color: #999;
+	font-family: Georgia, Palatino, "Palatino Linotype", Baskerville, serif;
+	font-style: italic;
+}
+
+.alt-font a {
+	color: #A00042;
+}
+
+.post_list {
+	background: #f9f9f9;
+	margin-bottom:8px;
+	height:30px;
+	padding-top:8px;
+}
 
 /* Post Format Styles */
 	.post-head span.post-format-label{

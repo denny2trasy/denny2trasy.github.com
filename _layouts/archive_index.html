@@ -1,0 +1,8 @@
+---
+layout: default
+---
+
+<h1 class="category"><strong>{{ page.title }}</strong></h1>
+{% for post in page.posts %}
+	{% include post_list.html %}
+{% endfor %}

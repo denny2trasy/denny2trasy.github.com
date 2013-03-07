@@ -1,0 +1,19 @@
+<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			{% for category in post.categories %}
+				<a href="/categories/{{ category }}/index.html">{{ category }}</a>
+			{% endfor %} &nbsp; 
+			at {{ post.date | date: "%Y-%m-%d"}} </span>
+			<span class="comments-link">
+			      <a href="{{}}">{{ post.comments | size }} Comment</a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		{{ post.content | markdownify }}
+	</div>
+</div>
+<div class="clear"></div>

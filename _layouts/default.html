@@ -1,160 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 <head>
-	
-	<title>Denny Li Blog | Better Late Than Never</title>
-	
+	<title>{{ site.title }} | {{ site.desc }}</title>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
+
 	<link rel="stylesheet" href="/css/rundown.css" type="text/css" media="screen" />
 
-	<script type='text/javascript' src='/js/jquery.js?ver=1.7.2'></script>
-	<script type='text/javascript' src='/js/rundown-script.js?ver=3.4'></script>
+	<script type='text/javascript' src='/js/jquery.js'></script>
+	<script type='text/javascript' src='/js/rundown-script.js'></script>
 
-
-<!--[if IE]>
-	<link href="/css/ie.css" rel="stylesheet" type="text/css" />
-<![endif]-->	
-
+	<!--[if IE]>
+		<link href="/css/ie.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
 </head>
 
 <body class="home blog custom-background">
 
 	<div id="wrapper">
 	
-		<div id="header">
-
-		<div id="header-inner">
-			<h1><a href="http://denny2trasy.github.com">Denny's Blog</a></h1>
-			<p class="description">Better Late Than Never - Start From Little Thing</p>
+		{% include header.html %}
+		
+		<!--/#main-->		
+		<div id="main">
+			<div id="content">
+				{{ content }}
+			</div>			
+			{% include sidebar.html %}
+			<div class="clear"></div>			
 		</div>
 		
-				
-		<div id="primarynav" class="menu-news-container">
-			<ul class="menu">
-				<li class="menu-item"><a href="http://denny2trasy.github.com">Home</a></li>
-				<li class="menu-item"><a href="/index.html">Post</a></li>
-				<li class="menu-item"><a href="/about.html">About</a></li>
-			</ul>
-		</div>		
-		<div class="clear"></div>	
-				
-	</div><!--/#header-->		
-		
-		<div id="main">
-			<div id="content">			
-				{{ content }}	
-			</div><!--/#content-->
-			
-			<div id="sidebar">
-				<div id="recent-posts" class="widget">
-					<h2>Recent Posts</h2>		
-					<ul>
-						<li>
-							<a href="" title="Rajin Pangkal Pandai">Rajin Pangkal Pandai</a>
-						</li>
-						<li>
-							<a href="" title="The Earth">The Earth</a>
-						</li>
-						<li>
-							<a href="" title="Thomas A. Edison Quote">Thomas A. Edison Quote</a>
-						</li>
-						<li>
-							<a href="" title="Image Post Format">Image Post Format</a>
-						</li>
-						<li>
-							<a href="" title="Hello world!">Hello world!</a>
-						</li>
-					</ul>
-				</div>
-				<div id="recent-comments" class="widget">
-					<h2>Recent Comments</h2>		
-					<ul>
-						<li>
-							<a href="" title="Rajin Pangkal Pandai">Rajin Pangkal Pandai</a>
-						</li>
-						<li>
-							<a href="" title="The Earth">The Earth</a>
-						</li>
-						<li>
-							<a href="" title="Thomas A. Edison Quote">Thomas A. Edison Quote</a>
-						</li>
-						<li>
-							<a href="" title="Image Post Format">Image Post Format</a>
-						</li>
-						<li>
-							<a href="" title="Hello world!">Hello world!</a>
-						</li>
-					</ul>
-				</div>				
-				<div id="categories" class="widget">
-					<h2>Categories</h2>		
-					<ul>
-						{% for category in site.categories %}
-							<li><a href="{{category}}">{{category.title}}</a></li>
-						{% endfor %}
-						<li>
-							<a href="" title="Rajin Pangkal Pandai">Rajin Pangkal Pandai</a>
-						</li>
-						<li>
-							<a href="" title="The Earth">The Earth</a>
-						</li>
-						<li>
-							<a href="" title="Thomas A. Edison Quote">Thomas A. Edison Quote</a>
-						</li>
-						<li>
-							<a href="" title="Image Post Format">Image Post Format</a>
-						</li>
-						<li>
-							<a href="" title="Hello world!">Hello world!</a>
-						</li>
-					</ul>
-				</div>
-				<div id="archives" class="widget">
-					<h2>Archives</h2>		
-					<ul>
-						<li>
-							<a href="" title="Rajin Pangkal Pandai">Rajin Pangkal Pandai</a>
-						</li>
-						<li>
-							<a href="" title="The Earth">The Earth</a>
-						</li>
-						<li>
-							<a href="" title="Thomas A. Edison Quote">Thomas A. Edison Quote</a>
-						</li>
-						<li>
-							<a href="" title="Image Post Format">Image Post Format</a>
-						</li>
-						<li>
-							<a href="" title="Hello world!">Hello world!</a>
-						</li>
-					</ul>
-				</div>
-			</div><!--/#sidebar-->	
-
-			<div class="clear"></div>			
+		{% include footer.html %}
 	
-
-		</div><!--/#main-->
-		
-		<div class="clear"></div>		
-		
-		<div id="footer">
-		
-			<div class="footer-inner">
-				<span class="footcreditleft">&copy; 2013 - Denny</span>
-				<span class="footcreditright"><a href="http://www.kharissulistiyono.com/wp-labs/rundown-wordpress-theme/">Rundown</a>  - Proudly powered by <a href="http://www.wordpress.org">WordPress</a></span>
-				<div class="clear"></div>
-			</div>	
-		</div><!--/#footer-->
+	</div>
 	
-	
-	</div><!-- /#wrapper -->
-	
-	<a href="#" class="scrollup">Scroll to top</a>			
-
+	<a href="#" class="scrollup">Scroll to top</a>
 		
 </body>
 

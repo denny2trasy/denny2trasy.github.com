@@ -3,23 +3,7 @@ layout: default
 ---
 
 {% for post in paginator.posts %}
-	<div class="post">
-		<div class="post-head">
-			<h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-			<div class="meta">
-				Posted in : 
-				{% for category in post.categories %}
-					<a href="Category_{{category}}">{{ category }}</a>
-				{% endfor %}
-				<span class="comments-link">
-				      <a href="{{}}">{{ post.comments | size }} Comment</a>
-				</span>
-			</div>
-		</div>
-		<div class="entry">
-			{{ post.content }}
-		</div>
-	</div>
+	{% include post.html %}	
 {% endfor %}
 
 										

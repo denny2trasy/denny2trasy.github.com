@@ -1,8 +1,7 @@
 ---
-layout: default
+layout: post
 title: English Breakfast
-categories: [English, Exercise]
-comments: true
+category: English
 ---
 
 # {{page.title}}

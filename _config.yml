@@ -1,8 +1,8 @@
-safe:   true
 auto:   true
-lsi:    true
 markdown: rdiscount
 pygments: true
-paginate: 2
+paginate: 3
+permalink: none
 
-layout: "test"
+title: Denny's Blog
+desc: Better Late Than Never - Start From Little Thing - Just Do It

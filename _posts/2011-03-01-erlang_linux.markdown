@@ -1,9 +1,9 @@
 ---
-layout: rundown
+layout: post
 title: Erlang Linux
+category: Erlang
 ---
 
-# {{page.title}}
 
 ## linux查看进程的命令
 

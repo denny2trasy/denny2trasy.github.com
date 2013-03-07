@@ -1,6 +1,7 @@
 ---
-layout: carrington
+layout: post
 title: Erlang Study
+category: Erlang
 ---
 
 # {{page.title}}

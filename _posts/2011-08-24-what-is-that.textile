@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: post
 title: What is that
+category: English
 ---
 
 {{ page.title }}
