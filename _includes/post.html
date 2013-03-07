@@ -8,7 +8,7 @@
 			{% endfor %} &nbsp; 
 			at {{ post.date | date: "%Y-%m-%d"}} </span>
 			<span class="comments-link">
-			      <a href="{{}}">{{ post.comments | size }} Comment</a>
+			      <a href="{{ post.url }}#disqus_thread"></a>
 			</span>
 		</div>
 	</div>
