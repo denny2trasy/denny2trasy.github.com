@@ -1,6 +1,7 @@
-auto:   true
+auto: true
 markdown: rdiscount
 pygments: true
+lsi: false
 paginate: 3
 permalink: none
 
