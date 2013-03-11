@@ -4,9 +4,6 @@ title: English Breakfast
 category: English
 ---
 
-# {{page.title}}
-
-
 ## Topic: Breakfast 
 
 What do you want for Breakfast? 

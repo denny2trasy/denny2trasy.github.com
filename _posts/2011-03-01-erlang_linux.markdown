@@ -5,8 +5,6 @@ category: Erlang
 ---
 
 
-
-
 ## linux查看进程的命令
 
 `ps aux`

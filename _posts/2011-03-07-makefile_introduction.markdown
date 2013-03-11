@@ -3,7 +3,6 @@ layout: post
 title: What is makefile?
 ---
 
-# {{page.title}}
 
 ## linux下用make工具编译程序，关键是makefile文件。
 

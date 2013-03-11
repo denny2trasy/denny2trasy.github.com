@@ -4,7 +4,6 @@ title: What is that
 category: English
 ---
 
-{{ page.title }}
 
 I cannot remember that, please forgive me!
 

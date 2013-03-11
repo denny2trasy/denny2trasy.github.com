@@ -4,7 +4,6 @@ title: English Learning 1
 category: English
 ---
 
-# {{page.title}}
 
 
 ## 春天和冬天你更喜欢那个季节？

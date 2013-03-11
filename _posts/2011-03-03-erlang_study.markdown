@@ -4,7 +4,6 @@ title: Erlang Study
 category: Erlang
 ---
 
-# {{page.title}}
 
 ## Erlang程序编译运行的方法
 
