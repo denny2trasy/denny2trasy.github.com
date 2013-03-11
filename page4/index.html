@@ -37,7 +37,183 @@
 		<div id="main">
 			<div id="content">
 				
-<div class="post">
+	<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="/Erlang/erlang_study.html">Erlang Study</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/Erlang/index.html">Erlang</a>
+			 &nbsp; 
+			at 2011-03-03 </span>
+			<span class="comments-link">
+			      <a href="/Erlang/erlang_study.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h2>Erlang程序编译运行的方法</h2>
+
+
+
+
+<h3>方法1：直接在shell中编译运行</h3>
+
+
+
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">hello</span><span class="p">.</span><span class="n">erl</span>
+    <span class="o">-</span><span class="n">module</span><span class="p">(</span><span class="n">hello</span><span class="p">).</span>
+    <span class="o">-</span><span class="n">export</span><span class="p">([</span><span class="n">start</span><span class="o">/</span><span class="mi">0</span><span class="p">]).</span>
+
+    <span class="n">start</span><span class="p">()</span> <span class="o">-&gt;</span>
+        <span class="nn">io</span><span class="p">:</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;Hello world</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">).</span>
+</pre></div>
+</td></tr></table>
+
+
+
+
+<div class="highlight"><pre><span class="gp">$</span> erl
+<span class="gp">&gt;</span>c<span class="o">(</span>hello<span class="o">)</span>.
+<span class="go">{ok,hello}</span>
+<span class="gp">&gt;</span>hello:start<span class="o">()</span>.
+<span class="go">Hello world</span>
+<span class="go">ok</span>
+<span class="gp">&gt;</span>
+</pre></div>
+
+
+
+
+<h3>方法2：在命令行编译运行</h3>
+
+
+
+
+<div class="highlight"><pre><span class="err">$ erlc hello</span>
+<span class="err">$ erl -noshell -pa path -s hello start -s init stop</span>
+</pre></div>
+
+
+
+
+<h3>方法3：把方法2的命令写入一个脚本，作为批处理的东西</h3>
+
+
+
+
+<div class="highlight"><pre>hello.sh
+    <span class="c">#!/bin/sh</span>
+    
+    erl -noshell -pa path -s hello start -s init <span class="nb">stop</span>
+</pre></div>
+
+
+
+
+<div class="highlight"><pre><span class="gp">$</span> ./hello.sh
+</pre></div>
+
+
+
+
+<h3>方法4：用makefile来编译，</h3>
+
+
+
+
+<p>一个标准的makefile模板</p>
+
+
+
+
+<p>.SUFFIXES: .erl .bem .yrl
+.erl .beam</p>
+
+
+
+
+<pre><code>erlc -W $&lt;
+</code></pre>
+
+
+
+
+<p>.yrl .erl</p>
+
+
+
+
+<pre><code>erlc -W $&lt;
+</code></pre>
+
+
+
+
+<p>ERL=erl -boot start_clean
+MODS=mod1 mod2 mod3 …</p>
+
+
+
+
+<p>all:compile
+compile: ${MODS:%=%.beam} subdirs
+special1.beam: special1.erl</p>
+
+
+
+
+<pre><code>${ERL} -Dflag | -w0 special1.erl
+</code></pre>
+
+
+
+
+<p>application1: compile</p>
+
+
+
+
+<pre><code>${ERL} -pa Dir1 -s application1 start Arg1 Arg2
+</code></pre>
+
+
+
+
+<p>subdirs:</p>
+
+
+
+
+<pre><code>cd dir1; moke
+cd dir2: make
+</code></pre>
+
+
+
+
+<p>clean:</p>
+
+
+
+
+<pre><code>rm -rf *.beam erl_crash.dump
+cd dir1; make clean
+cd dir2; make clean
+</code></pre>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
 	<div class="post-head">
 		<h2 class="post-title"><a href="/Erlang/erlang_linux.html">Erlang Linux</a></h2>
 		<div class="meta">
@@ -54,67 +230,160 @@
 	<div class="entry">
 		<h2>linux查看进程的命令</h2>
 
+
+
+
 <p><code>ps aux</code></p>
+
+
+
 
 <p>a -- 显示系统中所有用户的进程</p>
 
+
+
+
 <p>u -- 输出进程的用户所属信息</p>
+
+
+
 
 <p>x -- 显示没有控制台的进程</p>
 
+
+
+
 <h2>查找服务名为erlang的进程</h2>
+
+
+
 
 <p><code>ps aux | grec erlang</code></p>
 
+
+
+
 <h2>linux查看系统监听的服务</h2>
+
+
+
 
 <p>｀netstat -lna｀</p>
 
+
+
+
 <p>l -- 当前系统监听的端口信息</p>
+
+
+
 
 <p>n -- 端口按照端口号来显示</p>
 
+
+
+
 <p>a -- 所有的服务</p>
+
+
+
 
 <h2>erl 命令参数介绍</h2>
 
+
+
+
 <p>*boot</p>
+
+
+
 
 <p>指定启动文件，默认值: $ROOT/bin/start.boot
 *s Mod Func Arg1,Arg2</p>
 
+
+
+
 <p>init调用的方法，</p>
+
+
+
 
 <p>*setcookie Cookie</p>
 
+
+
+
 <p>设置cookie</p>
+
+
+
 
 <p>*name Name</p>
 
+
+
+
 <p>让erlang运行时系统运行在Name结点上， Name的形式 Name@Host</p>
+
+
+
 
 <p>*config Config</p>
 
+
+
+
 <p>明确configuration文件</p>
+
+
+
 
 <p>*noshell</p>
 
+
+
+
 <p>不用对话界面</p>
+
+
+
 
 <p>*pa path</p>
 
+
+
+
 <p>path为绝对路径，指导程序的启动路径</p>
+
+
+
 
 <p>｀erl -noshell -s hello start -s init stop｀</p>
 
+
+
+
 <h2>erlang应用程序</h2>
+
+
+
 
 <p>有一个application callback module,应用程序的启动和终止的方法。app_name.erl</p>
 
+
+
+
 <p>应用程序的描述文件 application resource file，记录应用程序的基本信息，app_name.app文件</p>
+
+
+
 
 <p>其内容如下：
 {application,app_name,</p>
+
+
+
 
 <pre><code>[{description,"Just Sample"},
 {vsn,"0.01"},
@@ -126,34 +395,48 @@
 ]
 </code></pre>
 
+
+
+
 <p>}</p>
+
+
+
 
 <p>modules -- 应用程序执行完start后，要运行的start的module列表</p>
 
+
+
+
 <p>mod -- 应用程序的入口，这个module的start stop脚本</p>
+
+
+
 
 <p>applications -- 应用程序运行之前，必须启动或运行的应用</p>
 
+
+
+
 <p>application master进程是应用程序的主进程，控制着应用程序的执行</p>
+
 
 	</div>
 </div>
-<div class="clear"></div>
+<div class="clear"></div>	
 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'dennysblog'; // required: replace example with your forum shortname
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+										
+<div class="navigation">
+	
+		<span class="nav-previous">
+			
+				<a href="/page3">Previous</a>
+			
+		</span>
+	
+			
+</div>
 
 
 			</div>			
