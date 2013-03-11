@@ -37,7 +37,7 @@
 		<div id="main">
 			<div id="content">
 				
-	<div class="post">
+<div class="post">
 	<div class="post-head">
 		<h2 class="post-title"><a href="/TechExper/update_my_website_2.html">我的建站经历(续)</a></h2>
 		<div class="meta">
@@ -54,28 +54,13 @@
 	<div class="entry">
 		<h2>第四天</h2>
 
-
-
-
 <p><strong>网站功能</strong></p>
-
-
-
 
 <p>博客不用太复杂，能发文章，评论即可，文章可以按类别和时间归类就行。</p>
 
-
-
-
 <p>Jekyll提供了基本的Post维护，虽然说有category，tag等标记功能，但是文章的归档就没有。幸好它提供plugin，自己能够实现想要的功能。</p>
 
-
-
-
 <p>对于一篇Post文章，其中包含两类数据：</p>
-
-
-
 
 <ul>
 <li><p>YAML Front Matter标记：记录文章的属性，例如layout，title，category，以及任何自己想定义的属性，这些标记都会被Liquid templating engine解析，并且记录到data数据中，等到render这些页面的时候，用Liquid标记来获得这些数据，展示在新生成的页面中。<a href="https://github.com/mojombo/jekyll/wiki/template-data">参考</a></p></li>
@@ -83,372 +68,48 @@
 </ul>
 
 
-
-
 <p>有了如上的知识，可以发表自己的post，可是如果想让文章归类显示，在首页中弄个category list块，还是需要plugin的帮助。</p>
-
-
-
 
 <p>起初想自己按照<a href="https://github.com/mojombo/jekyll/wiki/Plugins">说明</a>实现categary和archive的文章生成功能和categary_list列表块。可是不知道什么原因，generate总是不执行，无法生成页面，而且还找不到好的调试手段。
 改变策略，直接把现成的plugin copy过来还是无法生成，最后翻看文档才明白，我在<em>config配置文件中，把safe设置为true，这样所有的</em>plugins都被屏蔽。</p>
 
-
-
-
 <p>算是搞定一个问题，继续中…</p>
-
-
-
 
 <h2>第五天</h2>
 
-
-
-
 <p>优化layout，使用include，layout可以嵌套，layout中大量使用Liquid标记。</p>
-
-
-
 
 <h2>第六天</h2>
 
-
-
-
 <p>完善plugin，给网站添加<a href="http://www.disqus.com">comment</a>功能。</p>
-
-
-
 
 <h2>第七天</h2>
 
-
-
-
 <p>学习<a href="http://wowubuntu.com/markdown/">markdown</a>语法，部署代码</p>
-
-
-
 
 <p>github page不支持unsafe plugin， 所以我自己写的plugin在page上无法执行，刚碰到这个问题时，让我很是疑惑，在本地一点问题都没有，怎么放上去就是没有效果，最后才找到，page的config文件中safe默认是打开的。
 为了解决这个问题，github提供了两种方案，<a href="https://help.github.com/articles/pages-don-t-build-unable-to-run-jekyll">参见</a>，思来想去，我还是觉得采取第一种方案比较简单。</p>
 
-
-
-
 <p>至此，我的博客重新搞定，坚持写下去是目前的首要任务，这个建站过程就是新开篇吧！</p>
 
-
 	</div>
 </div>
-<div class="clear"></div>	
-
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/TechExper/update_my_website.html">我的建站经历</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/TechExper/index.html">TechExper</a>
-			 &nbsp; 
-			at 2013-03-02 </span>
-			<span class="comments-link">
-			      <a href="/TechExper/update_my_website.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>序</h2>
-
-
-
-
-<p>三年前，为了体验heroku这个新东西，用rails写了一个简单的个人博客；</p>
-
-
-
-
-<p>两年前，知道github page的功能，依据官方文档，仿照别人的博客，构建了自己在github的博客，还增加了一些博文，这次动作还比较大，用自己的名字申请了域名，可是写博文的习惯没有形成；</p>
-
-
-
-
-<p>一年前，域名没有续费，停止解析；</p>
-
-
-
-
-<p>年前，感觉到压力，重新审视自己，迷茫…</p>
-
-
-
-
-<p>年后，压力依然在，最低目标确定——继续好好写博文，增加知名度，迷茫减少中…，犹豫和紧迫感剧增。</p>
-
-
-
-
-<blockquote><p>不怕慢只怕站——从小事做起——马上开始</p></blockquote>
-
-
-
-
-<h2>第一天</h2>
-
-
-
-
-<p>最低目标确定后，决定拥有一个漂亮好用的博客是首要任务。</p>
-
-
-
-
-<p>怎样才能拥有这样的博客呢？途径有二：</p>
-
-
-
-
-<ul>
-<li>在各种流行的技术网站申请一个帐号，开通自己的博客</li>
-<li>自己手动写，租个空间，自己部署维护</li>
-</ul>
-
-
-
-
-<p>作为一个技术人员，毫不犹豫的选择二。脑海中马上出现如下问题：</p>
-
-
-
-
-<p><strong>要不要自己的域名？</strong></p>
-
-
-
-
-<p>直接上<a href="http://www.godaddy.com">Godaddy</a>上查询，自己想要的域名还在，每年的费用是9.9美元。</p>
-
-
-
-
-<p><strong>虚拟空间租用哪里的？</strong></p>
-
-
-
-
-<p>大家都知道的原因，直接考虑国外的空间，免费空间有点不靠谱。网上找了好几家， 最便宜的是<a href="http://www.ipage.com">ipage</a>，1.99美元／月，其他像<a href="http://www.bluehost.com">bluehost</a>，<a href="http://www.justhost.com">justhost</a>，godaddy，<a href="http://www.webhost.com">webhost</a>等都是每月5美元左右。</p>
-
-
-
-
-<p><strong>走什么技术路线，用开源还是自己开发？</strong></p>
-
-
-
-
-<p>最近几年都是rails用开发，想当然的想用rails开发自己的博客，可是这样的空间不多；去年也用drupal，wordpress等开源的东西搭建了几个小网站，一时间也定不下采用那种方案。</p>
-
-
-
-
-<p><strong>博客想要那些功能？</strong></p>
-
-
-
-
-<p>最基本的写文章，评论。</p>
-
-
-
-
-<p><strong>博客风格是什么样的？</strong></p>
-
-
-
-
-<p>简单，好看</p>
-
-
-
-
-<h2>第二天</h2>
-
-
-
-
-<p>纠结于技术路线的选取。</p>
-
-
-
-
-<p>模仿是我的能力，了解一下牛人是怎么搭建博客的，于是上网查看了一些人的网站。
-<a href="http://robbinfan.com/">Robbin</a>最近更新了自己的博客，用ruby写了一个简单清新好运的博客，<a href="http://www.dujinfang.com">Seven</a>用github的page功能作为自己的技术博客，<a href="http://huangzhimin.com/">Richard</a> 也是用github。</p>
-
-
-
-
-<p>阮一峰的一篇文章，让我有了决定，文章请<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">参见</a></p>
-
-
-
-
-<p>最后决定更新我在github上的博客，注意是更新，因为两年前我都建立了它，只是一直没有维护和更新博文内容。</p>
-
-
-
-
-<h2>第三天</h2>
-
-
-
-
-<p>技术定了后，博客的风格就是接下来要解决的问题。</p>
-
-
-
-
-<p>在google里，所有blog template，找到好多都是blogger的模板文件。咱在blogger中也是有帐号的，可惜一篇文章都没有。下载几个模板在blogger后台试用后，觉得这些模板都不错，可惜拿来用还是有一定工作量的。</p>
-
-
-
-
-<p>继续我们的模板探索路。</p>
-
-
-
-
-<p>其实首先想到的是bootstrap，功能很强大，总感觉用到这里有点别扭，也许下一个版本可以尝试一下用这个。</p>
-
-
-
-
-<p>除了github外，wordpress写博客也很方便，而且有很多现成的模板。找呀找，终于找到一个觉得不错的<a href="http://www.kharissulistiyono.com/rundown/2012/11/25/just-write/">模板</a>，可是怎么才能把wordpress的模板转化可用的博客模板呢？采用了最原始的查看源代码，也不知道有没有比这个更好的办法。</p>
-
-
-
-
-<p>虽说是查看源代码，毕竟是要弄个新东西，所以，整个页面的每个部分，header，right，left，footer，一一都要调整好才行。</p>
-
-
-
-
-<p>求其他好办法…</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/English/english_breakfast.html">English Breakfast</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/English/index.html">English</a>
-			 &nbsp; 
-			at 2011-09-21 </span>
-			<span class="comments-link">
-			      <a href="/English/english_breakfast.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>Topic: Breakfast</h2>
-
-
-
-
-<p>What do you want for Breakfast?
-What did you have for Breakfast?</p>
-
-
-
-
-<p>I had <strong>something</strong> for breakfast.
-I will have <strong>something</strong> for breakfast.</p>
-
-
-
-
-<p>You can also use this for Lunch, dinner or a snack.</p>
-
-
-
-
-<p>Like….</p>
-
-
-
-
-<p>I had ice cream for a snack.</p>
-
-
-
-
-<p>Rice, noodles, dumplings, McDonalds.</p>
-
-
-
-
-<p>Add oil!</p>
-
-
-
-
-<h2>Topic:  Kent comes to visit</h2>
-
-
-
-
-<p>Questions:</p>
-
-
-
-
-<p>Good morning.</p>
-
-
-
-
-<p>How was your flight?
-How was your trip over?
-How was the traffic?
-How is your family?
-How are your children?</p>
-
-
-
-
-<p>Answers:
-If he asks you how work is going, you can say:
-Everything is going great!
-Everything is going smooth.</p>
-
-
-
-
-<p>Word of the day:  smooth.</p>
-
-
-
-
-<p>Add oil!!!!</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
-
-										
-<div class="navigation">
-	
-	
-		<span class="nav-next"><a href="/page2">Next</a></span>
-			
-</div>
+<div class="clear"></div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'dennysblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 			</div>			
