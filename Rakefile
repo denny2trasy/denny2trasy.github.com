@@ -10,18 +10,20 @@ task :submit_my_posts,[:desc] do |t, args|
   puts "**************************************************"
   puts "1 - Summit new code to source branch"
   system 'git co source'
+  system 'git pull origin source'
   system 'git add --all'
   system "git commit -m '#{args.desc}'"
   system "git push origin source"
   puts "**************************************************"
   puts "2 - Copy new site code to backup place"
-  system 'cp -aR _site/ ../../liguande/site'
+  system 'cp -aR _site/ ../denny2trasy_master/'
   puts "**************************************************"
-  puts "3 - Change branch to master"
-  system 'git co master'
-  system "cp -aR ../../liguande/site/ ."
+  puts "3 - Change dir to denny2trasy_master"
+  system 'cd ../denny2trasy_master'
   puts "**************************************************"
   puts "4 - Summit new site to master branch"
+  system "git co master"
+  system "git pull origin master"
   system "git add --all"
   system "git commit -m '#{args.desc}'"
   system "git push origin master"
