@@ -40,32 +40,65 @@
 				
 <div class="post">
 	<div class="post-head">
-		<h2 class="post-title"><a href="/English/english_study_1.html">English Learning 1</a></h2>
+		<h2 class="post-title"><a href="/Google/add_google_marked_map.html">如何在网站中添加有城市标记的Google地图</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
 			
-				<a href="/categories/English/index.html">English</a>
+				<a href="/categories/Google/index.html">Google</a>
 			 &nbsp; 
-			at 2011-03-11 </span>
+			at 2013-03-14 </span>
 			<span class="comments-link">
-			      <a href="/English/english_study_1.html#disqus_thread"></a>
+			      <a href="/Google/add_google_marked_map.html#disqus_thread"></a>
 			</span>
 		</div>
 	</div>
 	<div class="entry">
-		<h2>春天和冬天你更喜欢那个季节？</h2>
+		<p>好多网站都会有这样的需求，展示一个地图，上面标记出一些地名或者城市。如下图所示。</p>
 
-<p>我更喜欢春天，给人一种清新的感觉。</p>
+<p><img src="/images/map.png" alt="map_id" /></p>
 
-<p>春天有雨，冬天有雪，相对于雪，我更喜欢雨。尤其是那种小雨，淅淅沥沥的，时断时停。在雨中漫步，能够感受春的气息，品味泥土的芳香。</p>
+<p>众所周知，Google和baidu都提供了地图服务，象上述这个小功能肯定提供了API来实现。本人没有开发过GIS，上网搜索后，找到了一个解决办法，纪录之，已供学习用。<a href="https://developers.google.com/maps/articles/v2tov3?hl=en">参考</a></p>
 
-<p>气温的回升，让世间万物都复苏，当然人也不例外，所以大家都感受大自然，或去户外爬山，或去郊区踏青，抑或和朋友一起打球。</p>
+<ul>
+<li>首先在Html的<head>标记中添加如下语句</li>
+</ul>
 
-<h2>what do you like, spring or winter?</h2>
 
-<p>I prefer spring rather than winter. As all know, there is rain in the spring and snow in the winter. I prefer rain to snow. especially a small rain（spit）, it is intermittence. I can walk in the rain , feel the spring and smell the earth.</p>
+<p><code>&lt;script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;key=Your_API_Key" type="text/javascript"&gt;&lt;/script&gt;</code></p>
 
-<p>Also , it is warmer and warmer in the spring, so it make everything in the world become more lively. Of course, we human being can go out with friends to climb, go for a walk in the country . For me, I can play basketball with my friends, Basketball is my favorite sport.</p>
+<ul>
+<li><p>然后添加初始化地图的js函数initialize()</p>
+
+<pre><code>var map = new google.maps.Map(
+  document.getElementById('map_canvas'), {
+    center: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+    zoom: 11,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+
+var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+      map: map
+});
+
+var marker1 = new google.maps.Marker({
+      position: new google.maps.LatLng(39.99855,116.470013),
+      map: map
+});
+</code></pre>
+
+<p>  <code>google.maps.event.addDomListener(window, 'load', initialize);</code></p></li>
+<li><p>接下来，在页面中添加map的div，代码如下</p></li>
+</ul>
+
+
+<p><code>&lt;div id="map_canvas"&gt;&lt;/div&gt;</code></p>
+
+<p>这样就可以在网页中看到有标志的Google地图了。</p>
+
+<p>那么如何得到某个城市或者地方的准确经纬度呢？可以访问这个网址，输入地名，就可以得到对应的经纬度。</p>
+
+<p><a href="http://www.gpsspg.com/maps.htm">http://www.gpsspg.com/maps.htm</a></p>
 
 	</div>
 </div>

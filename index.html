@@ -13,6 +13,7 @@
 	<!--[if IE]>
 		<link href="/css/ie.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
+	
 </head>
 
 <body class="home blog custom-background">
@@ -37,6 +38,98 @@
 		<div id="main">
 			<div id="content">
 				
+	<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="/Google/add_google_marked_map.html">如何在网站中添加有城市标记的Google地图</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/Google/index.html">Google</a>
+			 &nbsp; 
+			at 2013-03-14 </span>
+			<span class="comments-link">
+			      <a href="/Google/add_google_marked_map.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<p>好多网站都会有这样的需求，展示一个地图，上面标记出一些地名或者城市。如下图所示。</p>
+
+
+
+
+<p><img src="/images/map.png" alt="map_id" /></p>
+
+
+
+
+<p>众所周知，Google和baidu都提供了地图服务，象上述这个小功能肯定提供了API来实现。本人没有开发过GIS，上网搜索后，找到了一个解决办法，纪录之，已供学习用。<a href="https://developers.google.com/maps/articles/v2tov3?hl=en">参考</a></p>
+
+
+
+
+<ul>
+<li>首先在Html的<head>标记中添加如下语句</li>
+</ul>
+
+
+
+
+<p><code>&lt;script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;key=Your_API_Key" type="text/javascript"&gt;&lt;/script&gt;</code></p>
+
+
+
+
+<ul>
+<li><p>然后添加初始化地图的js函数initialize()</p>
+
+<pre><code>var map = new google.maps.Map(
+  document.getElementById('map_canvas'), {
+    center: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+    zoom: 11,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+
+var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+      map: map
+});
+
+var marker1 = new google.maps.Marker({
+      position: new google.maps.LatLng(39.99855,116.470013),
+      map: map
+});
+</code></pre>
+
+<p>  <code>google.maps.event.addDomListener(window, 'load', initialize);</code></p></li>
+<li><p>接下来，在页面中添加map的div，代码如下</p></li>
+</ul>
+
+
+
+
+<p><code>&lt;div id="map_canvas"&gt;&lt;/div&gt;</code></p>
+
+
+
+
+<p>这样就可以在网页中看到有标志的Google地图了。</p>
+
+
+
+
+<p>那么如何得到某个城市或者地方的准确经纬度呢？可以访问这个网址，输入地名，就可以得到对应的经纬度。</p>
+
+
+
+
+<p><a href="http://www.gpsspg.com/maps.htm">http://www.gpsspg.com/maps.htm</a></p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
 	<div class="post">
 	<div class="post-head">
 		<h2 class="post-title"><a href="/TechExper/update_my_website_2.html">我的建站经历(续)</a></h2>
@@ -340,107 +433,6 @@
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/English/english_breakfast.html">English Breakfast</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/English/index.html">English</a>
-			 &nbsp; 
-			at 2011-09-21 </span>
-			<span class="comments-link">
-			      <a href="/English/english_breakfast.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>Topic: Breakfast</h2>
-
-
-
-
-<p>What do you want for Breakfast?
-What did you have for Breakfast?</p>
-
-
-
-
-<p>I had <strong>something</strong> for breakfast.
-I will have <strong>something</strong> for breakfast.</p>
-
-
-
-
-<p>You can also use this for Lunch, dinner or a snack.</p>
-
-
-
-
-<p>Like….</p>
-
-
-
-
-<p>I had ice cream for a snack.</p>
-
-
-
-
-<p>Rice, noodles, dumplings, McDonalds.</p>
-
-
-
-
-<p>Add oil!</p>
-
-
-
-
-<h2>Topic:  Kent comes to visit</h2>
-
-
-
-
-<p>Questions:</p>
-
-
-
-
-<p>Good morning.</p>
-
-
-
-
-<p>How was your flight?
-How was your trip over?
-How was the traffic?
-How is your family?
-How are your children?</p>
-
-
-
-
-<p>Answers:
-If he asks you how work is going, you can say:
-Everything is going great!
-Everything is going smooth.</p>
-
-
-
-
-<p>Word of the day:  smooth.</p>
-
-
-
-
-<p>Add oil!!!!</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -450,10 +442,12 @@ Everything is going smooth.</p>
 			
 </div>
 			</div>			
-			<div id="sidebar">
+			<div id="sidebar">	
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/Google/add_google_marked_map.html">如何在网站中添加有城市标记的Google地图</a></strong></li>
 			
 				<li><strong><a href="/TechExper/update_my_website_2.html">我的建站经历(续)</a></strong></li>
 			
@@ -473,16 +467,14 @@ Everything is going smooth.</p>
 			
 				<li><strong><a href="/makefile_introduction.html">What is makefile?</a></strong></li>
 			
-				<li><strong><a href="/Erlang/erlang_study.html">Erlang Study</a></strong></li>
-			
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (2 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
-	</div>				
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (3 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+	</div>					
 </div>
 
 			<div class="clear"></div>			

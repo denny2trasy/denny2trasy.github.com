@@ -279,7 +279,7 @@ body{
 	ul{
 		list-style-type: disc;		
 		margin-left:1.250em;	
-		list-style-position:inside;		
+/*		list-style-position:inside;		*/
 	}
 	
 	ol{
