@@ -22,7 +22,7 @@ task :submit_my_posts,[:desc] do |t, args|
   system 'cd ../denny2trasy_master'
   puts "**************************************************"
   puts "4 - Summit new site to master branch"
-  system "git co master"
+  # system "git co master"
   system "git pull origin master"
   system "git add --all"
   system "git commit -m '#{args.desc}'"

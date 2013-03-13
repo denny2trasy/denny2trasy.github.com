@@ -2,10 +2,42 @@
 layout: default
 ---
 
+<script src="//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBVTE8lTjMCAXtFMViCcuhWTB5pQxSuqFc&language=cn"  type="text/javascript"></script>
+
+<script type="text/javascript">
+
+	function initialize() {
+	      var map = new google.maps.Map(
+	        document.getElementById('map_canvas'), {
+	          center: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+	          zoom: 11,
+	          mapTypeId: google.maps.MapTypeId.ROADMAP
+	      });
+
+	      var marker = new google.maps.Marker({
+	            position: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+	            map: map
+	      });
+	
+	      var marker1 = new google.maps.Marker({
+	            position: new google.maps.LatLng(39.99855,116.470013),
+	            map: map
+	      });
+
+	}
+	
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+
+
 <div>
 	<div>
 		<img src="images/lg180.jpg" />
-	</div>
+		<div id="map_canvas" style="width:180px;height:180px;float:right"></div>
+	</div>	
+	<div class="clear"></div>	
 	<div>
 		<p>I'm Denny from Beijing,China. I am working as Rails Coder, Manager at Eleutian.<p>
 		<p>
