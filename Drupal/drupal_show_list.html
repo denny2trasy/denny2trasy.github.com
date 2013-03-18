@@ -62,11 +62,11 @@
 <p>于是决定自己写个Module实现这个菜单。</p>
 
 <ul>
-<li>定义菜单项</li>
+<li>定义菜单项,实现hook_menu函数</li>
 </ul>
 
 
-<p>`function asischina_menu(){</p>
+<p>`</p>
 
 <pre><code>$items['asischina/list/%'] = array(
         'title' =&gt; 'Content Type list',
@@ -78,14 +78,14 @@
 return $items;
 </code></pre>
 
-<p>}`</p>
+<p>`</p>
 
 <ul>
-<li>实现查询功能</li>
+<li>实现查询功能，asischina_list_for_content_type_page($content_type)</li>
 </ul>
 
 
-<p>`function asischina_list_for_content_type_page($content_type){</p>
+<p>`</p>
 
 <pre><code>$query = 'SELECT nid FROM {node} where type = "'. $content_type .'" ORDER BY nid desc ';
 
@@ -109,7 +109,7 @@ $output .= theme('pager', NULL, 10, 0);
 return $output;
 </code></pre>
 
-<p>}`</p>
+<p>`</p>
 
 <p>最终代码虽然简单，过程可是很曲折的。</p>
 
@@ -126,6 +126,14 @@ list -- array(1)
 <p>最后， theme('pager',Null,10,0)展示页面中的分页器</p>
 
 <p>纪录这些学习过程。</p>
+
+<hr />
+
+<p><em>问：github如何得到除master以外的分支</em></p>
+
+<p><em>答：第一次clone下来都是master,用如下语句可以得到其他分支</em></p>
+
+<p><code>git checkout -b xxx origin/xxx</code></p>
 
 	</div>
 </div>
