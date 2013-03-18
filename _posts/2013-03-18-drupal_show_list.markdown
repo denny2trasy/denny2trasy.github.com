@@ -4,6 +4,7 @@ title: Drupal实现节点列表菜单
 category: Drupal
 ---
 
+
 Drupal有搜索功能，只要在搜索表单中输入条件，点击搜索就可以得到结果列表页面。可是在开发网站的过程中，难免会有这样的需求，一个菜单或者连接实现一个查询。最近在建立[Asischina](http://www.asischia.com)这个网站的时候，就需要实现这个菜单。
 
 
@@ -13,9 +14,9 @@ Drupal有搜索功能，只要在搜索表单中输入条件，点击搜索就�
 
 于是决定自己写个Module实现这个菜单。
 
-+ 定义菜单项
++ 定义菜单项,实现hook_menu函数
 
-`function asischina_menu(){
+`	
 	$items['asischina/list/%'] = array(
     		'title' => 'Content Type list',
     		'page callback' => 'asischina_list_for_content_type_page',
@@ -24,13 +25,13 @@ Drupal有搜索功能，只要在搜索表单中输入条件，点击搜索就�
     		'type' => MENU_CALLBACK,
   	);
 	return $items;
-}`
+`
 
 
-+ 实现查询功能
++ 实现查询功能，asischina_list_for_content_type_page($content_type)
 
-`function asischina_list_for_content_type_page($content_type){
 
+`
 	$query = 'SELECT nid FROM {node} where type = "'. $content_type .'" ORDER BY nid desc ';
 	
 	$count_query = "SELECT COUNT(*) FROM (" . $query . ") AS count_query";
@@ -51,7 +52,7 @@ Drupal有搜索功能，只要在搜索表单中输入条件，点击搜索就�
 	$output .= theme('pager', NULL, 10, 0);	
 
 	return $output;
-}`
+`
 
 
 最终代码虽然简单，过程可是很曲折的。
@@ -69,5 +70,14 @@ list -- array(1)
 最后， theme('pager',Null,10,0)展示页面中的分页器
 
 纪录这些学习过程。
+
+* * *
+
+*问：github如何得到除master以外的分支*
+
+*答：第一次clone下来都是master,用如下语句可以得到其他分支*
+
+`git checkout -b xxx origin/xxx`
+
 
 
