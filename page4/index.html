@@ -40,6 +40,58 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/English/english_study_1.html">English Learning 1</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/English/index.html">English</a>
+			 &nbsp; 
+			at 2011-03-11 </span>
+			<span class="comments-link">
+			      <a href="/English/english_study_1.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h2>春天和冬天你更喜欢那个季节？</h2>
+
+
+
+
+<p>我更喜欢春天，给人一种清新的感觉。</p>
+
+
+
+
+<p>春天有雨，冬天有雪，相对于雪，我更喜欢雨。尤其是那种小雨，淅淅沥沥的，时断时停。在雨中漫步，能够感受春的气息，品味泥土的芳香。</p>
+
+
+
+
+<p>气温的回升，让世间万物都复苏，当然人也不例外，所以大家都感受大自然，或去户外爬山，或去郊区踏青，抑或和朋友一起打球。</p>
+
+
+
+
+<h2>what do you like, spring or winter?</h2>
+
+
+
+
+<p>I prefer spring rather than winter. As all know, there is rain in the spring and snow in the winter. I prefer rain to snow. especially a small rain（spit）, it is intermittence. I can walk in the rain , feel the spring and smell the earth.</p>
+
+
+
+
+<p>Also , it is warmer and warmer in the spring, so it make everything in the world become more lively. Of course, we human being can go out with friends to climb, go for a walk in the country . For me, I can play basketball with my friends, Basketball is my favorite sport.</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/makefile_introduction.html">What is makefile?</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -326,218 +378,6 @@ cd dir2; make clean
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/Erlang/erlang_linux.html">Erlang Linux</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/Erlang/index.html">Erlang</a>
-			 &nbsp; 
-			at 2011-03-01 </span>
-			<span class="comments-link">
-			      <a href="/Erlang/erlang_linux.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>linux查看进程的命令</h2>
-
-
-
-
-<p><code>ps aux</code></p>
-
-
-
-
-<p>a -- 显示系统中所有用户的进程</p>
-
-
-
-
-<p>u -- 输出进程的用户所属信息</p>
-
-
-
-
-<p>x -- 显示没有控制台的进程</p>
-
-
-
-
-<h2>查找服务名为erlang的进程</h2>
-
-
-
-
-<p><code>ps aux | grec erlang</code></p>
-
-
-
-
-<h2>linux查看系统监听的服务</h2>
-
-
-
-
-<p>｀netstat -lna｀</p>
-
-
-
-
-<p>l -- 当前系统监听的端口信息</p>
-
-
-
-
-<p>n -- 端口按照端口号来显示</p>
-
-
-
-
-<p>a -- 所有的服务</p>
-
-
-
-
-<h2>erl 命令参数介绍</h2>
-
-
-
-
-<p>*boot</p>
-
-
-
-
-<p>指定启动文件，默认值: $ROOT/bin/start.boot
-*s Mod Func Arg1,Arg2</p>
-
-
-
-
-<p>init调用的方法，</p>
-
-
-
-
-<p>*setcookie Cookie</p>
-
-
-
-
-<p>设置cookie</p>
-
-
-
-
-<p>*name Name</p>
-
-
-
-
-<p>让erlang运行时系统运行在Name结点上， Name的形式 Name@Host</p>
-
-
-
-
-<p>*config Config</p>
-
-
-
-
-<p>明确configuration文件</p>
-
-
-
-
-<p>*noshell</p>
-
-
-
-
-<p>不用对话界面</p>
-
-
-
-
-<p>*pa path</p>
-
-
-
-
-<p>path为绝对路径，指导程序的启动路径</p>
-
-
-
-
-<p>｀erl -noshell -s hello start -s init stop｀</p>
-
-
-
-
-<h2>erlang应用程序</h2>
-
-
-
-
-<p>有一个application callback module,应用程序的启动和终止的方法。app_name.erl</p>
-
-
-
-
-<p>应用程序的描述文件 application resource file，记录应用程序的基本信息，app_name.app文件</p>
-
-
-
-
-<p>其内容如下：
-{application,app_name,</p>
-
-
-
-
-<pre><code>[{description,"Just Sample"},
-{vsn,"0.01"},
-{modules,[]},
-{registered,[]},
-{mod,{app_name,[]}},
-{env,[]},
-{applications,[kernel,stdlib,crypto]}
-]
-</code></pre>
-
-
-
-
-<p>}</p>
-
-
-
-
-<p>modules -- 应用程序执行完start后，要运行的start的module列表</p>
-
-
-
-
-<p>mod -- 应用程序的入口，这个module的start stop脚本</p>
-
-
-
-
-<p>applications -- 应用程序运行之前，必须启动或运行的应用</p>
-
-
-
-
-<p>application master进程是应用程序的主进程，控制着应用程序的执行</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -548,6 +388,8 @@ cd dir2; make clean
 			
 		</span>
 	
+	
+		<span class="nav-next"><a href="/page5">Next</a></span>
 			
 </div>
 			</div>			
@@ -555,6 +397,8 @@ cd dir2; make clean
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/Drupal/drupal_show_list.html">Drupal实现节点列表菜单</a></strong></li>
 			
 				<li><strong><a href="/Google/add_google_marked_map.html">如何在网站中添加有城市标记的Google地图</a></strong></li>
 			
@@ -574,15 +418,13 @@ cd dir2; make clean
 			
 				<li><strong><a href="/English/english_study_1.html">English Learning 1</a></strong></li>
 			
-				<li><strong><a href="/makefile_introduction.html">What is makefile?</a></strong></li>
-			
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (3 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (4 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 

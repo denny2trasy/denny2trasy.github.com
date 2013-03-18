@@ -37,27 +37,114 @@
 		<!--/#main-->		
 		<div id="main">
 			<div id="content">
-				<h1 class="category"><strong>Category: Erlang</strong></h1>
-
-	
-	<div class="post_list">		
-			<span class="post-title"><strong><a href="/Erlang/erlang_study.html">Erlang Study</a></strong></span>
-			<span class="alt-font">Posted at : 2011-03-03</span> 
+				
+<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="/Drupal/drupal_show_list.html">Drupal实现节点列表菜单</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/Drupal/index.html">Drupal</a>
+			 &nbsp; 
+			at 2013-03-18 </span>
 			<span class="comments-link">
-			      <a href="/Erlang/erlang_study.html#disqus_thread"></a>
+			      <a href="/Drupal/drupal_show_list.html#disqus_thread"></a>
 			</span>
+		</div>
 	</div>
+	<div class="entry">
+		<p>Drupal有搜索功能，只要在搜索表单中输入条件，点击搜索就可以得到结果列表页面。可是在开发网站的过程中，难免会有这样的需求，一个菜单或者连接实现一个查询。最近在建立<a href="http://www.asischia.com">Asischina</a>这个网站的时候，就需要实现这个菜单。</p>
+
+<p>具体需求，这个网站中，有一个Node Type是News的节点，想通过/asischina/list/news来得到所有的News列表，并希望结果页面有分页功能。</p>
+
+<p>起初我觉得这个功能不复杂，肯定有Module实现了它，于是就去<a href="http://www.drupal.org">Drupal</a>官方搜索，结果是令人失望的，两天都没有找到合适的Module。</p>
+
+<p>于是决定自己写个Module实现这个菜单。</p>
+
+<ul>
+<li>定义菜单项</li>
+</ul>
 
 
-	
-	<div class="post_list">		
-			<span class="post-title"><strong><a href="/Erlang/erlang_linux.html">Erlang Linux</a></strong></span>
-			<span class="alt-font">Posted at : 2011-03-01</span> 
-			<span class="comments-link">
-			      <a href="/Erlang/erlang_linux.html#disqus_thread"></a>
-			</span>
+<p>`function asischina_menu(){</p>
+
+<pre><code>$items['asischina/list/%'] = array(
+        'title' =&gt; 'Content Type list',
+        'page callback' =&gt; 'asischina_list_for_content_type_page',
+        'page arguments' =&gt; array(2),
+        'access callback' =&gt; TRUE, //array('access content'),
+        'type' =&gt; MENU_CALLBACK,
+);
+return $items;
+</code></pre>
+
+<p>}`</p>
+
+<ul>
+<li>实现查询功能</li>
+</ul>
+
+
+<p>`function asischina_list_for_content_type_page($content_type){</p>
+
+<pre><code>$query = 'SELECT nid FROM {node} where type = "'. $content_type .'" ORDER BY nid desc ';
+
+$count_query = "SELECT COUNT(*) FROM (" . $query . ") AS count_query";
+
+$result = pager_query($query, 10, 0, $count_query);
+
+$output = "";
+
+while ($item = db_fetch_object($result)) {
+
+// Build the node body.
+        $node = node_load($item-&gt;nid);
+
+    $output .= node_view($node,true);
+
+}
+
+$output .= theme('pager', NULL, 10, 0); 
+
+return $output;
+</code></pre>
+
+<p>}`</p>
+
+<p>最终代码虽然简单，过程可是很曲折的。</p>
+
+<p>首先，定义菜单项，需要注意page argements与通配符的对应关系，本例中，array(2)对应通配符。</p>
+
+<p>asischina  -- array(0)
+list -- array(1)
+% -- array[2]</p>
+
+<p>再次，pager_query函数实现分页查询</p>
+
+<p>然后， node_view实现node正确显示，按列表结果展示，不是按full page展示节点</p>
+
+<p>最后， theme('pager',Null,10,0)展示页面中的分页器</p>
+
+<p>纪录这些学习过程。</p>
+
 	</div>
+</div>
+<div class="clear"></div>
 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'dennysblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 			</div>			

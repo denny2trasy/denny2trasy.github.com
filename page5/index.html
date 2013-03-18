@@ -37,29 +37,231 @@
 		<!--/#main-->		
 		<div id="main">
 			<div id="content">
-				<h1 class="category"><strong>Category: Erlang</strong></h1>
-
-	
-	<div class="post_list">		
-			<span class="post-title"><strong><a href="/Erlang/erlang_study.html">Erlang Study</a></strong></span>
-			<span class="alt-font">Posted at : 2011-03-03</span> 
-			<span class="comments-link">
-			      <a href="/Erlang/erlang_study.html#disqus_thread"></a>
-			</span>
-	</div>
-
-
-	
-	<div class="post_list">		
-			<span class="post-title"><strong><a href="/Erlang/erlang_linux.html">Erlang Linux</a></strong></span>
-			<span class="alt-font">Posted at : 2011-03-01</span> 
+				
+	<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="/Erlang/erlang_linux.html">Erlang Linux</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/Erlang/index.html">Erlang</a>
+			 &nbsp; 
+			at 2011-03-01 </span>
 			<span class="comments-link">
 			      <a href="/Erlang/erlang_linux.html#disqus_thread"></a>
 			</span>
+		</div>
 	</div>
+	<div class="entry">
+		<h2>linux查看进程的命令</h2>
 
 
 
+
+<p><code>ps aux</code></p>
+
+
+
+
+<p>a -- 显示系统中所有用户的进程</p>
+
+
+
+
+<p>u -- 输出进程的用户所属信息</p>
+
+
+
+
+<p>x -- 显示没有控制台的进程</p>
+
+
+
+
+<h2>查找服务名为erlang的进程</h2>
+
+
+
+
+<p><code>ps aux | grec erlang</code></p>
+
+
+
+
+<h2>linux查看系统监听的服务</h2>
+
+
+
+
+<p>｀netstat -lna｀</p>
+
+
+
+
+<p>l -- 当前系统监听的端口信息</p>
+
+
+
+
+<p>n -- 端口按照端口号来显示</p>
+
+
+
+
+<p>a -- 所有的服务</p>
+
+
+
+
+<h2>erl 命令参数介绍</h2>
+
+
+
+
+<p>*boot</p>
+
+
+
+
+<p>指定启动文件，默认值: $ROOT/bin/start.boot
+*s Mod Func Arg1,Arg2</p>
+
+
+
+
+<p>init调用的方法，</p>
+
+
+
+
+<p>*setcookie Cookie</p>
+
+
+
+
+<p>设置cookie</p>
+
+
+
+
+<p>*name Name</p>
+
+
+
+
+<p>让erlang运行时系统运行在Name结点上， Name的形式 Name@Host</p>
+
+
+
+
+<p>*config Config</p>
+
+
+
+
+<p>明确configuration文件</p>
+
+
+
+
+<p>*noshell</p>
+
+
+
+
+<p>不用对话界面</p>
+
+
+
+
+<p>*pa path</p>
+
+
+
+
+<p>path为绝对路径，指导程序的启动路径</p>
+
+
+
+
+<p>｀erl -noshell -s hello start -s init stop｀</p>
+
+
+
+
+<h2>erlang应用程序</h2>
+
+
+
+
+<p>有一个application callback module,应用程序的启动和终止的方法。app_name.erl</p>
+
+
+
+
+<p>应用程序的描述文件 application resource file，记录应用程序的基本信息，app_name.app文件</p>
+
+
+
+
+<p>其内容如下：
+{application,app_name,</p>
+
+
+
+
+<pre><code>[{description,"Just Sample"},
+{vsn,"0.01"},
+{modules,[]},
+{registered,[]},
+{mod,{app_name,[]}},
+{env,[]},
+{applications,[kernel,stdlib,crypto]}
+]
+</code></pre>
+
+
+
+
+<p>}</p>
+
+
+
+
+<p>modules -- 应用程序执行完start后，要运行的start的module列表</p>
+
+
+
+
+<p>mod -- 应用程序的入口，这个module的start stop脚本</p>
+
+
+
+
+<p>applications -- 应用程序运行之前，必须启动或运行的应用</p>
+
+
+
+
+<p>application master进程是应用程序的主进程，控制着应用程序的执行</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+
+
+<div class="navigation">
+	
+		<span class="nav-previous">
+			
+				<a href="/page4">Previous</a>
+			
+		</span>
+	
+			
+</div>
 			</div>			
 			<div id="sidebar">	
 	<div id="recent-posts" class="widget">
