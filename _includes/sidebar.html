@@ -2,7 +2,7 @@
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
-			{% for post in site.posts limit:10 %}
+			{% for post in site.posts %}
 				<li><strong><a href="{{ post.url }}">{{ post.title }}</a></strong></li>
 			{% endfor %}
 		</ul>

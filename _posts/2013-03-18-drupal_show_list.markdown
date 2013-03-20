@@ -16,43 +16,38 @@ Drupal有搜索功能，只要在搜索表单中输入条件，点击搜索就�
 
 + 定义菜单项,实现hook_menu函数
 
-`	
-	$items['asischina/list/%'] = array(
-    		'title' => 'Content Type list',
-    		'page callback' => 'asischina_list_for_content_type_page',
-    		'page arguments' => array(2),
-    		'access callback' => TRUE, //array('access content'),
-    		'type' => MENU_CALLBACK,
-  	);
-	return $items;
-`
+    
+      $items['asischina/list/%'] = array(
+    	'title' => 'Content Type list',
+    	'page callback' => 'asischina_list_for_content_type_page',
+    	'page arguments' => array(2),
+    	'access callback' => TRUE, //array('access content'),
+    	'type' => MENU_CALLBACK,
+  	  );
+      return $items;
 
 
 + 实现查询功能，asischina_list_for_content_type_page($content_type)
 
 
-`
-	$query = 'SELECT nid FROM {node} where type = "'. $content_type .'" ORDER BY nid desc ';
+      $query = 'SELECT nid FROM {node} where type = "'. $content_type .'" ORDER BY nid desc ';
+
+      $count_query = "SELECT COUNT(*) FROM (" . $query . ") AS count_query";
+      
+      $result = pager_query($query, 10, 0, $count_query);
+
+      $output = "";
+      
+      while ($item = db_fetch_object($result)) {		
+	    // Build the node body.
+        $node = node_load($item->nid);
+        $output .= node_view($node,true);
+  	  }
+
+      $output .= theme('pager', NULL, 10, 0);
 	
-	$count_query = "SELECT COUNT(*) FROM (" . $query . ") AS count_query";
+      return $output;
 
-	$result = pager_query($query, 10, 0, $count_query);
-  
-	$output = "";
-  
-	while ($item = db_fetch_object($result)) {
-		
-	// Build the node body.
-        	$node = node_load($item->nid);
-
-		$output .= node_view($node,true);
-
-  	}
-	
-	$output .= theme('pager', NULL, 10, 0);	
-
-	return $output;
-`
 
 
 最终代码虽然简单，过程可是很曲折的。
