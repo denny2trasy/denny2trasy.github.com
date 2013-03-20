@@ -100,7 +100,8 @@ category: IE
 
 关于第三个问题，没有修改任何css代码，只是在网页的头部添加了<!DOCTYPE> transitional DTD。
 
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "
-http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+具体[参见](http://www.w3school.com.cn/tags/tag_doctype.asp)
 
 
