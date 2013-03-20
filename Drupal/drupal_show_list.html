@@ -62,30 +62,18 @@
 <p>于是决定自己写个Module实现这个菜单。</p>
 
 <ul>
-<li>定义菜单项,实现hook_menu函数</li>
-</ul>
-
-
-<p>`</p>
+<li><p>定义菜单项,实现hook_menu函数</p>
 
 <pre><code>$items['asischina/list/%'] = array(
-        'title' =&gt; 'Content Type list',
-        'page callback' =&gt; 'asischina_list_for_content_type_page',
-        'page arguments' =&gt; array(2),
-        'access callback' =&gt; TRUE, //array('access content'),
-        'type' =&gt; MENU_CALLBACK,
+  'title' =&gt; 'Content Type list',
+  'page callback' =&gt; 'asischina_list_for_content_type_page',
+  'page arguments' =&gt; array(2),
+  'access callback' =&gt; TRUE, //array('access content'),
+  'type' =&gt; MENU_CALLBACK,
 );
 return $items;
-</code></pre>
-
-<p>`</p>
-
-<ul>
-<li>实现查询功能，asischina_list_for_content_type_page($content_type)</li>
-</ul>
-
-
-<p>`</p>
+</code></pre></li>
+<li><p>实现查询功能，asischina_list_for_content_type_page($content_type)</p>
 
 <pre><code>$query = 'SELECT nid FROM {node} where type = "'. $content_type .'" ORDER BY nid desc ';
 
@@ -95,21 +83,18 @@ $result = pager_query($query, 10, 0, $count_query);
 
 $output = "";
 
-while ($item = db_fetch_object($result)) {
-
-// Build the node body.
-        $node = node_load($item-&gt;nid);
-
-    $output .= node_view($node,true);
-
+while ($item = db_fetch_object($result)) {        
+  // Build the node body.
+  $node = node_load($item-&gt;nid);
+  $output .= node_view($node,true);
 }
 
-$output .= theme('pager', NULL, 10, 0); 
+$output .= theme('pager', NULL, 10, 0);
 
 return $output;
-</code></pre>
+</code></pre></li>
+</ul>
 
-<p>`</p>
 
 <p>最终代码虽然简单，过程可是很曲折的。</p>
 
@@ -161,6 +146,8 @@ list -- array(1)
 		<h2>Recent Posts</h2>		
 		<ul>
 			
+				<li><strong><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></strong></li>
+			
 				<li><strong><a href="/Drupal/drupal_show_list.html">Drupal实现节点列表菜单</a></strong></li>
 			
 				<li><strong><a href="/Google/add_google_marked_map.html">如何在网站中添加有城市标记的Google地图</a></strong></li>
@@ -181,13 +168,19 @@ list -- array(1)
 			
 				<li><strong><a href="/English/english_study_1.html">English Learning 1</a></strong></li>
 			
+				<li><strong><a href="/makefile_introduction.html">What is makefile?</a></strong></li>
+			
+				<li><strong><a href="/Erlang/erlang_study.html">Erlang Study</a></strong></li>
+			
+				<li><strong><a href="/Erlang/erlang_linux.html">Erlang Linux</a></strong></li>
+			
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (4 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (5 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 

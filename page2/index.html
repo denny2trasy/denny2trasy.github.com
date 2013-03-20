@@ -40,6 +40,113 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/TechExper/update_my_website_2.html">我的建站经历(续)</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/TechExper/index.html">TechExper</a>
+			 &nbsp; 
+			at 2013-03-11 </span>
+			<span class="comments-link">
+			      <a href="/TechExper/update_my_website_2.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h2>第四天</h2>
+
+
+
+
+<p><strong>网站功能</strong></p>
+
+
+
+
+<p>博客不用太复杂，能发文章，评论即可，文章可以按类别和时间归类就行。</p>
+
+
+
+
+<p>Jekyll提供了基本的Post维护，虽然说有category，tag等标记功能，但是文章的归档就没有。幸好它提供plugin，自己能够实现想要的功能。</p>
+
+
+
+
+<p>对于一篇Post文章，其中包含两类数据：</p>
+
+
+
+
+<ul>
+<li><p>YAML Front Matter标记：记录文章的属性，例如layout，title，category，以及任何自己想定义的属性，这些标记都会被Liquid templating engine解析，并且记录到data数据中，等到render这些页面的时候，用Liquid标记来获得这些数据，展示在新生成的页面中。<a href="https://github.com/mojombo/jekyll/wiki/template-data">参考</a></p></li>
+<li><p>Liquid标记：两种语法，一是显示数据，二是操作数据。<a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">参考</a></p></li>
+</ul>
+
+
+
+
+<p>有了如上的知识，可以发表自己的post，可是如果想让文章归类显示，在首页中弄个category list块，还是需要plugin的帮助。</p>
+
+
+
+
+<p>起初想自己按照<a href="https://github.com/mojombo/jekyll/wiki/Plugins">说明</a>实现categary和archive的文章生成功能和categary_list列表块。可是不知道什么原因，generate总是不执行，无法生成页面，而且还找不到好的调试手段。
+改变策略，直接把现成的plugin copy过来还是无法生成，最后翻看文档才明白，我在<em>config配置文件中，把safe设置为true，这样所有的</em>plugins都被屏蔽。</p>
+
+
+
+
+<p>算是搞定一个问题，继续中…</p>
+
+
+
+
+<h2>第五天</h2>
+
+
+
+
+<p>优化layout，使用include，layout可以嵌套，layout中大量使用Liquid标记。</p>
+
+
+
+
+<h2>第六天</h2>
+
+
+
+
+<p>完善plugin，给网站添加<a href="http://www.disqus.com">comment</a>功能。</p>
+
+
+
+
+<h2>第七天</h2>
+
+
+
+
+<p>学习<a href="http://wowubuntu.com/markdown/">markdown</a>语法，部署代码</p>
+
+
+
+
+<p>github page不支持unsafe plugin， 所以我自己写的plugin在page上无法执行，刚碰到这个问题时，让我很是疑惑，在本地一点问题都没有，怎么放上去就是没有效果，最后才找到，page的config文件中safe默认是打开的。
+为了解决这个问题，github提供了两种方案，<a href="https://help.github.com/articles/pages-don-t-build-unable-to-run-jekyll">参见</a>，思来想去，我还是觉得采取第一种方案比较简单。</p>
+
+
+
+
+<p>至此，我的博客重新搞定，坚持写下去是目前的首要任务，这个建站过程就是新开篇吧！</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/TechExper/update_my_website.html">我的建站经历</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -335,31 +442,6 @@ Everything is going smooth.</p>
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/English/what-is-that.html">What is that</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/English/index.html">English</a>
-			 &nbsp; 
-			at 2011-08-24 </span>
-			<span class="comments-link">
-			      <a href="/English/what-is-that.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<p>I cannot remember that, please forgive me!</p>
-
-
-<p>why I cannot get liguande.com</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -379,6 +461,8 @@ Everything is going smooth.</p>
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></strong></li>
 			
 				<li><strong><a href="/Drupal/drupal_show_list.html">Drupal实现节点列表菜单</a></strong></li>
 			
@@ -400,13 +484,19 @@ Everything is going smooth.</p>
 			
 				<li><strong><a href="/English/english_study_1.html">English Learning 1</a></strong></li>
 			
+				<li><strong><a href="/makefile_introduction.html">What is makefile?</a></strong></li>
+			
+				<li><strong><a href="/Erlang/erlang_study.html">Erlang Study</a></strong></li>
+			
+				<li><strong><a href="/Erlang/erlang_linux.html">Erlang Linux</a></strong></li>
+			
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (4 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (5 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 

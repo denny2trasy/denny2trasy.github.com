@@ -40,6 +40,48 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/English/english_study_2.html">English Learning 2</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/English/index.html">English</a>
+			 &nbsp; 
+			at 2011-03-25 </span>
+			<span class="comments-link">
+			      <a href="/English/english_study_2.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h2>你的日常生活表是怎样的？</h2>
+
+
+
+
+<p>在工作日，我通常是7点起床，然后洗漱，7点半左右吃早餐，8点出门去上班，9点开始工作。中午12点半的时候，会和同事在单位附近吃中餐。可以有半个小时的休息时间，1点半开始继续工作，直到下午6点下班。大概在7点左右，我就可以到家，然后着手做晚饭，大概在8点左右，和妻子一起吃晚饭，之后，我开始学习，一直到11点半睡觉。</p>
+
+
+
+
+<h2>What is your routine life?</h2>
+
+
+
+
+<p>On week days, I always wake up at 7 o'clock, and then brash my teeth. At 7:30am, I have breakfast and go out to work at 8 o'clock. I normally start work at 9am in the morning and usually have my lunch with co-worker near my office, after that I have half an hour for rest. Then I go on working at 1:30pm, till 6:00pm I finish my whole day work. Usually I can get home about 7pm, and then start to cook my dinner. About 8pm , I take my dinner with my wife. After that I start till 11pm, and then go to bed.</p>
+
+
+
+
+<h2>一段时间集中处理一件事是多么关键，多么重要！ How important focus on one thing one time!</h2>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/English/english_study_1.html">English Learning 1</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -202,182 +244,6 @@ targets
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/Erlang/erlang_study.html">Erlang Study</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/Erlang/index.html">Erlang</a>
-			 &nbsp; 
-			at 2011-03-03 </span>
-			<span class="comments-link">
-			      <a href="/Erlang/erlang_study.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>Erlang程序编译运行的方法</h2>
-
-
-
-
-<h3>方法1：直接在shell中编译运行</h3>
-
-
-
-
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">hello</span><span class="p">.</span><span class="n">erl</span>
-    <span class="o">-</span><span class="n">module</span><span class="p">(</span><span class="n">hello</span><span class="p">).</span>
-    <span class="o">-</span><span class="n">export</span><span class="p">([</span><span class="n">start</span><span class="o">/</span><span class="mi">0</span><span class="p">]).</span>
-
-    <span class="n">start</span><span class="p">()</span> <span class="o">-&gt;</span>
-        <span class="nn">io</span><span class="p">:</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;Hello world</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">).</span>
-</pre></div>
-</td></tr></table>
-
-
-
-
-<div class="highlight"><pre><span class="gp">$</span> erl
-<span class="gp">&gt;</span>c<span class="o">(</span>hello<span class="o">)</span>.
-<span class="go">{ok,hello}</span>
-<span class="gp">&gt;</span>hello:start<span class="o">()</span>.
-<span class="go">Hello world</span>
-<span class="go">ok</span>
-<span class="gp">&gt;</span>
-</pre></div>
-
-
-
-
-<h3>方法2：在命令行编译运行</h3>
-
-
-
-
-<div class="highlight"><pre><span class="err">$ erlc hello</span>
-<span class="err">$ erl -noshell -pa path -s hello start -s init stop</span>
-</pre></div>
-
-
-
-
-<h3>方法3：把方法2的命令写入一个脚本，作为批处理的东西</h3>
-
-
-
-
-<div class="highlight"><pre>hello.sh
-    <span class="c">#!/bin/sh</span>
-    
-    erl -noshell -pa path -s hello start -s init <span class="nb">stop</span>
-</pre></div>
-
-
-
-
-<div class="highlight"><pre><span class="gp">$</span> ./hello.sh
-</pre></div>
-
-
-
-
-<h3>方法4：用makefile来编译，</h3>
-
-
-
-
-<p>一个标准的makefile模板</p>
-
-
-
-
-<p>.SUFFIXES: .erl .bem .yrl
-.erl .beam</p>
-
-
-
-
-<pre><code>erlc -W $&lt;
-</code></pre>
-
-
-
-
-<p>.yrl .erl</p>
-
-
-
-
-<pre><code>erlc -W $&lt;
-</code></pre>
-
-
-
-
-<p>ERL=erl -boot start_clean
-MODS=mod1 mod2 mod3 …</p>
-
-
-
-
-<p>all:compile
-compile: ${MODS:%=%.beam} subdirs
-special1.beam: special1.erl</p>
-
-
-
-
-<pre><code>${ERL} -Dflag | -w0 special1.erl
-</code></pre>
-
-
-
-
-<p>application1: compile</p>
-
-
-
-
-<pre><code>${ERL} -pa Dir1 -s application1 start Arg1 Arg2
-</code></pre>
-
-
-
-
-<p>subdirs:</p>
-
-
-
-
-<pre><code>cd dir1; moke
-cd dir2: make
-</code></pre>
-
-
-
-
-<p>clean:</p>
-
-
-
-
-<pre><code>rm -rf *.beam erl_crash.dump
-cd dir1; make clean
-cd dir2; make clean
-</code></pre>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -397,6 +263,8 @@ cd dir2; make clean
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></strong></li>
 			
 				<li><strong><a href="/Drupal/drupal_show_list.html">Drupal实现节点列表菜单</a></strong></li>
 			
@@ -418,13 +286,19 @@ cd dir2; make clean
 			
 				<li><strong><a href="/English/english_study_1.html">English Learning 1</a></strong></li>
 			
+				<li><strong><a href="/makefile_introduction.html">What is makefile?</a></strong></li>
+			
+				<li><strong><a href="/Erlang/erlang_study.html">Erlang Study</a></strong></li>
+			
+				<li><strong><a href="/Erlang/erlang_linux.html">Erlang Linux</a></strong></li>
+			
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (4 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (5 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 
