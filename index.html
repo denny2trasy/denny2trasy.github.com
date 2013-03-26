@@ -40,6 +40,71 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/ico/ico_study.html">ico图标学习纪录</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/ico/index.html">ico</a>
+			 &nbsp; 
+			at 2013-03-26 </span>
+			<span class="comments-link">
+			      <a href="/ico/ico_study.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<p>开发的网站也不少，可是对于favicon.ico文件还是不怎么了解，每次要生成这个文件都是上网搜索教材，一直没有很好的学习和总结。今天就特地学习，并把笔记记下来，方便以后查阅。</p>
+
+
+
+
+<p>从三个问题着手来学习，</p>
+
+
+
+
+<p>1.ico是什么文件？</p>
+
+
+
+
+<p>ico是Icon file的缩写，是Windows的图标文件格式的一种，可以存储单个图案、多尺寸、多色板的图标文件。</p>
+
+
+
+
+<p>2.有什么用途？</p>
+
+
+
+
+<p>一般所说的ico图标是作为浏览器首段图标显示，还可以在收藏夹内收藏内容的前段显示小图标。</p>
+
+
+
+
+<p>3.怎么制作？</p>
+
+
+
+
+<p>有好多在线制作的网站，本人找了几个，方便以后用。</p>
+
+
+
+
+<p><a href="http://www.favicon.cc/">网站1</a>, 还有一篇介绍ico的文章，<a href="http://www.tianliang.org/644976/">参见</a>;
+<a href="http://www.bitbug.net">网站2</a>;
+<a href="http://www1.tc711.com/ICO/">网站3</a>;
+<a href="http://www.zzsky.cn/tool/ico/">网站4</a>;</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -383,98 +448,6 @@ list -- array(1)
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/Google/add_google_marked_map.html">如何在网站中添加有城市标记的Google地图</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/Google/index.html">Google</a>
-			 &nbsp; 
-			at 2013-03-14 </span>
-			<span class="comments-link">
-			      <a href="/Google/add_google_marked_map.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<p>好多网站都会有这样的需求，展示一个地图，上面标记出一些地名或者城市。如下图所示。</p>
-
-
-
-
-<p><img src="/images/map.png" alt="map_id" /></p>
-
-
-
-
-<p>众所周知，Google和baidu都提供了地图服务，象上述这个小功能肯定提供了API来实现。本人没有开发过GIS，上网搜索后，找到了一个解决办法，纪录之，已供学习用。<a href="https://developers.google.com/maps/articles/v2tov3?hl=en">参考</a></p>
-
-
-
-
-<ul>
-<li>首先在Html的<head>标记中添加如下语句</li>
-</ul>
-
-
-
-
-<p><code>&lt;script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;key=Your_API_Key" type="text/javascript"&gt;&lt;/script&gt;</code></p>
-
-
-
-
-<ul>
-<li><p>然后添加初始化地图的js函数initialize()</p>
-
-<pre><code>var map = new google.maps.Map(
-  document.getElementById('map_canvas'), {
-    center: new google.maps.LatLng(39.943096343663754,116.4474801854858),
-    zoom: 11,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-});
-
-var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(39.943096343663754,116.4474801854858),
-      map: map
-});
-
-var marker1 = new google.maps.Marker({
-      position: new google.maps.LatLng(39.99855,116.470013),
-      map: map
-});
-</code></pre>
-
-<p>  <code>google.maps.event.addDomListener(window, 'load', initialize);</code></p></li>
-<li><p>接下来，在页面中添加map的div，代码如下</p></li>
-</ul>
-
-
-
-
-<p><code>&lt;div id="map_canvas"&gt;&lt;/div&gt;</code></p>
-
-
-
-
-<p>这样就可以在网页中看到有标志的Google地图了。</p>
-
-
-
-
-<p>那么如何得到某个城市或者地方的准确经纬度呢？可以访问这个网址，输入地名，就可以得到对应的经纬度。</p>
-
-
-
-
-<p><a href="http://www.gpsspg.com/maps.htm">http://www.gpsspg.com/maps.htm</a></p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -488,6 +461,8 @@ var marker1 = new google.maps.Marker({
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/ico/ico_study.html">ico图标学习纪录</a></strong></li>
 			
 				<li><strong><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></strong></li>
 			
@@ -520,10 +495,10 @@ var marker1 = new google.maps.Marker({
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (5 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 

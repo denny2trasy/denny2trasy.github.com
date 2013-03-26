@@ -40,6 +40,118 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/makefile_introduction.html">What is makefile?</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			 &nbsp; 
+			at 2011-03-07 </span>
+			<span class="comments-link">
+			      <a href="/makefile_introduction.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h2>linux下用make工具编译程序，关键是makefile文件。</h2>
+
+
+
+
+<p>make命令有4个可选参数</p>
+
+
+
+
+<pre><code>make [flags] [macro] [definitions] [targets]
+
+flags选项
+
+    -f file 指定file为描述文件
+    -s 沉默模式，执行之前不输出相应的命令行信息
+    -r 禁止试用build-in规则
+    -n 非执行模式，输出所有执行命令，但是不执行
+    -t 更新目标文件
+    -q make操作将根据目标文件是否已经更新返回0或者非0
+    -p 输出所有宏定义和目标文件描述
+    -d Debug模式，输出有关文件和检测时间的详细信息
+    -c dir 在读取makefile之前改变到指定的目录上
+    -h help文档
+    -w 在处理makefile之前和之后，都显示工作目录
+    …
+
+macro
+
+    1。可以在makefile文件中定义宏
+        OBJECTS=filea.o fileb.o   (定义宏)
+        $(OBJECTS)        (应用宏)
+    2。在命令行中输入宏定义
+        make "LIBS=-LL -LS"    命令行中输入宏
+
+targets
+
+    用来指定make命令要编译的目标文件，并且允许同时定义编译多个
+</code></pre>
+
+
+
+
+<p>make all  编译所有的目标</p>
+
+
+
+
+<p>make clean 清除之前所编译的可执行文件及目的文件</p>
+
+
+
+
+<p>make distclean 除了清除可执行文件和目标文件外，同时把makefile文件也清除掉</p>
+
+
+
+
+<p>make install 将程序安装到系统中</p>
+
+
+
+
+<h2>gdb是用来调试c和c++程序的强力调试器</h2>
+
+
+
+
+<h2>wc 命令用来显示指定文件中 行数，字数 字节数</h2>
+
+
+
+
+<pre><code>$ wc -lwc file1 file2
+</code></pre>
+
+
+
+
+<h2>Erlang/OTP(Open Telecom Platform) 是包装在Erlang中的一组程序</h2>
+
+
+
+
+<pre><code>三种机制
+
+    行为机制(behaviours)
+        gen_server: 创建通用服务器，向多个客户端提供服务 
+        gen_fsm:  有限状态机
+        gen_event: 创建事件处理器和发报器
+    应用行为(Application behavior)
+    监测行为(Supervisor behavior)
+</code></pre>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/Erlang/erlang_study.html">Erlang Study</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -444,6 +556,8 @@ cd dir2; make clean
 		<h2>Recent Posts</h2>		
 		<ul>
 			
+				<li><strong><a href="/ico/ico_study.html">ico图标学习纪录</a></strong></li>
+			
 				<li><strong><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></strong></li>
 			
 				<li><strong><a href="/Drupal/drupal_show_list.html">Drupal实现节点列表菜单</a></strong></li>
@@ -475,10 +589,10 @@ cd dir2; make clean
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (5 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 

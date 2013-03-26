@@ -40,6 +40,58 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/English/english_study_3.html">English Learning 3</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/English/index.html">English</a>
+			 &nbsp; 
+			at 2011-05-16 </span>
+			<span class="comments-link">
+			      <a href="/English/english_study_3.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h2>你的兴趣是什么？</h2>
+
+
+
+
+<p>一直以来觉得自己是个生活单调的人。工作之余，很少和朋友们交流，总是待在家中休息。即使去打篮球，也是目标很明确的，就是单单为了锻炼身体，为了娱乐。</p>
+
+
+
+
+<p>羡慕那些在什么状况下都得心应手的人，在那儿都能让自己成为焦点，无论如何都可以和每一个人很熟悉。自己属于那种少言寡语，不善维护关系的人，没有形成一种势。</p>
+
+
+
+
+<p>目前，我最大的兴趣就是打篮球，每周都会打篮球。如果天气不好，导致无法打篮球，我心里会有一种说不出不舒服，感觉好像少了点什么？这让我想起，中学时候，由于天气原因，一周一次的体育课被取消后的心情。骨子里我还是喜欢玩的。</p>
+
+
+
+
+<p>打篮球，不仅能强壮我的身体，锻炼我的团队合作能力，而且还可以让我结交一些新朋友。其实篮球对我来说，还是不断建立自信的过程，让我明白了一个道理。记得02年开始打球的时候，那纯粹是为了出汗，拿到球除了紧张，就是想尽快把这个东西扔出去。经过这么多年，不断的练习，随着水平的不断提高，信心也建立起来，拿到球也不那么紧张。这个过程让我明白，只要不放弃，不断努力就能取得进步。同时兴趣是可以培养的，兴趣是第一要素。</p>
+
+
+
+
+<h2>What is your hobby?</h2>
+
+
+
+
+<p>I enjoy playing basketball with my friends on the weekends. I am excited whenever I play basketball. And It not only keeps me fit, makes me strong, but also helps for building a sense of cooperation. So I am a big fan of playing basketball.</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/English/english_study_2.html">English Learning 2</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -132,118 +184,6 @@
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/makefile_introduction.html">What is makefile?</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			 &nbsp; 
-			at 2011-03-07 </span>
-			<span class="comments-link">
-			      <a href="/makefile_introduction.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>linux下用make工具编译程序，关键是makefile文件。</h2>
-
-
-
-
-<p>make命令有4个可选参数</p>
-
-
-
-
-<pre><code>make [flags] [macro] [definitions] [targets]
-
-flags选项
-
-    -f file 指定file为描述文件
-    -s 沉默模式，执行之前不输出相应的命令行信息
-    -r 禁止试用build-in规则
-    -n 非执行模式，输出所有执行命令，但是不执行
-    -t 更新目标文件
-    -q make操作将根据目标文件是否已经更新返回0或者非0
-    -p 输出所有宏定义和目标文件描述
-    -d Debug模式，输出有关文件和检测时间的详细信息
-    -c dir 在读取makefile之前改变到指定的目录上
-    -h help文档
-    -w 在处理makefile之前和之后，都显示工作目录
-    …
-
-macro
-
-    1。可以在makefile文件中定义宏
-        OBJECTS=filea.o fileb.o   (定义宏)
-        $(OBJECTS)        (应用宏)
-    2。在命令行中输入宏定义
-        make "LIBS=-LL -LS"    命令行中输入宏
-
-targets
-
-    用来指定make命令要编译的目标文件，并且允许同时定义编译多个
-</code></pre>
-
-
-
-
-<p>make all  编译所有的目标</p>
-
-
-
-
-<p>make clean 清除之前所编译的可执行文件及目的文件</p>
-
-
-
-
-<p>make distclean 除了清除可执行文件和目标文件外，同时把makefile文件也清除掉</p>
-
-
-
-
-<p>make install 将程序安装到系统中</p>
-
-
-
-
-<h2>gdb是用来调试c和c++程序的强力调试器</h2>
-
-
-
-
-<h2>wc 命令用来显示指定文件中 行数，字数 字节数</h2>
-
-
-
-
-<pre><code>$ wc -lwc file1 file2
-</code></pre>
-
-
-
-
-<h2>Erlang/OTP(Open Telecom Platform) 是包装在Erlang中的一组程序</h2>
-
-
-
-
-<pre><code>三种机制
-
-    行为机制(behaviours)
-        gen_server: 创建通用服务器，向多个客户端提供服务 
-        gen_fsm:  有限状态机
-        gen_event: 创建事件处理器和发报器
-    应用行为(Application behavior)
-    监测行为(Supervisor behavior)
-</code></pre>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -263,6 +203,8 @@ targets
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/ico/ico_study.html">ico图标学习纪录</a></strong></li>
 			
 				<li><strong><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></strong></li>
 			
@@ -295,10 +237,10 @@ targets
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (5 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 
