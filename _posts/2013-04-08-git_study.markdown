@@ -1,0 +1,44 @@
+---
+layout: post
+title: Git学习纪录
+category: git
+---
+
+
+git也用了一段时间，可是其中的一些概念还是不清楚，于是抽空补习一下。
+
+几个基本概念
+
+* working directory (working tree) 工作目录，保存当前正在工作的文件所在的目录
+* stage (index) 索引，是工作目录和git库目录之间的暂存区
+* git directory (history) ，所有历史提交的纪录
+* branch 分支，指向某一个commit的提交
+* HEAD, 指向当前分支
+
+------------
+
+几个命令
+
+* diff，用于查看两次提交之间的变动。
+
+	+ 查看 stage 和 working directory之间的变动，命令 `git diff`
+	
+	+ 查看 当前branch 和 working directory之间的变动，命令`git diff HEAD`
+	
+	+ 查看 当前branch 和 staging之间的变动，命令`git diff --cached`
+	
+	+ 查看 某分支maint 和 working directory之间的变动，命令`git diff maint`
+	
+	+ 查看 提交b325c 和 提交 da985之间的变动，命令`git diff da985 b325c`
+
+* commit, 在git history中，创建一个新的提交，并把此时的节点设为父节点，然后把当前分支指向新的提交节点，主要任务_创建提交_
+
+* checkout,用于从历史提交（暂存区域）中拷贝文件到工作目录，也可以用于切换分支（即移动HEAD），主要任务_拷贝文件_, _移动_HEAD_
+
+* reset, 把当前分支指向另一个位置，并且有选择的变动工作目录和索引。也用来从历史仓库中复制文件到索引，而不动工作目录。主要任务_移动分支_
+
+* merge,把不同分支合并起来，合并前，索引必须和当前提交相同。主要任务_合并分支_
+
+* rebase,合并命令的另一种选择，在当前分支上重演另一个分支的历史，提交历史是线性的。主要任务_提交历史线性_
+
+具体参考[图解Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
