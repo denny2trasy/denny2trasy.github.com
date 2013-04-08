@@ -40,6 +40,79 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/Study/fibanocci_function.html">Fibanocci Function</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/Study/index.html">Study</a>
+			 &nbsp; 
+			at 2011-05-18 </span>
+			<span class="comments-link">
+			      <a href="/Study/fibanocci_function.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<p>As we known, fibanocci function f(x) = f(x-1) + f(x-2) when x &gt;1, else x = 0, 1, it is f(x) = 1.<br />
+Bellow is my ruby code for this. I have three method.</p>
+
+
+<ul>
+    <li>loop</li>
+    <li>recursion</li>
+    <li>block and yield</li>
+</ul>
+
+
+<p><em>Loop</em></p>
+
+
+<div class="highlight"><pre>    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><br />
+    <span class="nb">puts</span> <span class="s2">&quot;1&quot;</span><br />
+    <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span><br />
+        <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><br />
+        <span class="nb">puts</span> <span class="n">z</span><br />
+        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><br />
+        <span class="n">y</span> <span class="o">=</span> <span class="n">z</span><br />
+    <span class="k">end</span><br />
+</pre></div>
+
+
+<p><em>Recursion</em></p>
+
+
+<div class="highlight"><pre>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><br />
+        <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><br />
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><br />
+    <span class="k">end</span><br />
+<br />
+    <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span><br />
+        <span class="nb">puts</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><br />
+    <span class="k">end</span><br />
+</pre></div>
+
+
+<p><em>Yield and Block</em></p>
+
+
+<div class="highlight"><pre>    <span class="k">def</span> <span class="nf">fibonacii</span><span class="p">(</span><span class="n">max</span><span class="p">)</span><br />
+        <span class="n">f1</span><span class="p">,</span><span class="n">f2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><br />
+        <span class="k">while</span> <span class="n">f1</span> <span class="o">&gt;=</span> <span class="n">max</span><br />
+            <span class="k">yield</span> <span class="n">f1</span><br />
+            <span class="n">f1</span><span class="p">,</span><span class="n">f2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">,</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><br />
+        <span class="k">end</span><br />
+    <span class="k">end</span><br />
+<br />
+    <span class="n">fibonacii</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">f</span><span class="p">}</span><br />
+</pre></div>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/English/english_study_3.html">English Learning 3</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -132,58 +205,6 @@
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/English/english_study_1.html">English Learning 1</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/English/index.html">English</a>
-			 &nbsp; 
-			at 2011-03-11 </span>
-			<span class="comments-link">
-			      <a href="/English/english_study_1.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>春天和冬天你更喜欢那个季节？</h2>
-
-
-
-
-<p>我更喜欢春天，给人一种清新的感觉。</p>
-
-
-
-
-<p>春天有雨，冬天有雪，相对于雪，我更喜欢雨。尤其是那种小雨，淅淅沥沥的，时断时停。在雨中漫步，能够感受春的气息，品味泥土的芳香。</p>
-
-
-
-
-<p>气温的回升，让世间万物都复苏，当然人也不例外，所以大家都感受大自然，或去户外爬山，或去郊区踏青，抑或和朋友一起打球。</p>
-
-
-
-
-<h2>what do you like, spring or winter?</h2>
-
-
-
-
-<p>I prefer spring rather than winter. As all know, there is rain in the spring and snow in the winter. I prefer rain to snow. especially a small rain（spit）, it is intermittence. I can walk in the rain , feel the spring and smell the earth.</p>
-
-
-
-
-<p>Also , it is warmer and warmer in the spring, so it make everything in the world become more lively. Of course, we human being can go out with friends to climb, go for a walk in the country . For me, I can play basketball with my friends, Basketball is my favorite sport.</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -203,6 +224,8 @@
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/git/git_study.html">Git学习纪录</a></strong></li>
 			
 				<li><strong><a href="/ico/ico_study.html">ico图标学习纪录</a></strong></li>
 			
@@ -237,10 +260,10 @@
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/git/index.html"><strong>git (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2013/4/index.html"><strong>2013/4 (1 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 

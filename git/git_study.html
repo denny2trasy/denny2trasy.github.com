@@ -37,74 +37,80 @@
 		<!--/#main-->		
 		<div id="main">
 			<div id="content">
-				<script src="//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBVTE8lTjMCAXtFMViCcuhWTB5pQxSuqFc&language=cn"  type="text/javascript"></script>
+				
+<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="/git/git_study.html">Git学习纪录</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/git/index.html">git</a>
+			 &nbsp; 
+			at 2013-04-08 </span>
+			<span class="comments-link">
+			      <a href="/git/git_study.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<p>git也用了一段时间，可是其中的一些概念还是不清楚，于是抽空补习一下。</p>
 
-<script type="text/javascript">
+<p>几个基本概念</p>
 
-	function initialize() {
-	      var map = new google.maps.Map(
-	        document.getElementById('map_canvas'), {
-	          center: new google.maps.LatLng(39.943096343663754,116.4474801854858),
-	          zoom: 11,
-	          mapTypeId: google.maps.MapTypeId.ROADMAP
-	      });
-
-	      var marker = new google.maps.Marker({
-	            position: new google.maps.LatLng(39.943096343663754,116.4474801854858),
-	            map: map
-	      });
-	
-	      var marker1 = new google.maps.Marker({
-	            position: new google.maps.LatLng(39.99855,116.470013),
-	            map: map
-	      });
-
-	}
-	
-	google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
+<ul>
+<li>working directory (working tree) 工作目录，保存当前正在工作的文件所在的目录</li>
+<li>stage (index) 索引，是工作目录和git库目录之间的暂存区</li>
+<li>git directory (history) ，所有历史提交的纪录</li>
+<li>branch 分支，指向某一个commit的提交</li>
+<li>HEAD, 指向当前分支</li>
+</ul>
 
 
+<hr />
 
-<div>
-	<div>
-		<img src="images/lg180.jpg" />
-		<div id="map_canvas" style="width:180px;height:180px;float:right"></div>
-	</div>	
-	<div class="clear"></div>	
-	<div>
-		<p>I'm Denny from Beijing,China. I am working as Rails Coder, Manager at Eleutian.<p>
-		<p>
-			<h2>Ruby Developer</h2>
-			<ul>				
-				<li>finished some applications</li>
-				<li>studying more technical</li>
-				<li>hope to be a good programmer</li>
-			</ul>
-		</p>
-		<p>
-			<h2>Runner</h2>
-			<ul>
-				<li>took part in Beijing Marathon four times</li>
-				<li>run 3-4 times every week</li>
-				<li>want to be a strong muscle man</li>
-			</ul>
-		</p>
-		<p>
-			<h2>Father</h2>
-			<ul>
-				<li>a beautiful daughter</li>
-			</ul>
-		</p>
-		<p>
-			<h2>Manager</h2>
-			<ul>
-				<li>free rule manager</li>
-			</ul>
-		</p>
-	</div>	
+<p>几个命令</p>
+
+<ul>
+<li><p>diff，用于查看两次提交之间的变动。</p>
+
+<ul>
+<li><p>查看 stage 和 working directory之间的变动，命令 <code>git diff</code></p></li>
+<li><p>查看 当前branch 和 working directory之间的变动，命令<code>git diff HEAD</code></p></li>
+<li><p>查看 当前branch 和 staging之间的变动，命令<code>git diff --cached</code></p></li>
+<li><p>查看 某分支maint 和 working directory之间的变动，命令<code>git diff maint</code></p></li>
+<li><p>查看 提交b325c 和 提交 da985之间的变动，命令<code>git diff da985 b325c</code></p></li>
+</ul>
+</li>
+<li><p>commit, 在git history中，创建一个新的提交，并把此时的节点设为父节点，然后把当前分支指向新的提交节点，主要任务<em>创建提交</em></p></li>
+<li><p>checkout,用于从历史提交（暂存区域）中拷贝文件到工作目录，也可以用于切换分支（即移动HEAD），主要任务<em>拷贝文件</em>, <em>移动</em>HEAD_</p></li>
+<li><p>reset, 把当前分支指向另一个位置，并且有选择的变动工作目录和索引。也用来从历史仓库中复制文件到索引，而不动工作目录。主要任务<em>移动分支</em></p></li>
+<li><p>merge,把不同分支合并起来，合并前，索引必须和当前提交相同。主要任务<em>合并分支</em></p></li>
+<li><p>rebase,合并命令的另一种选择，在当前分支上重演另一个分支的历史，提交历史是线性的。主要任务<em>提交历史线性</em></p></li>
+</ul>
+
+
+<p>具体参考<a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解Git</a></p>
+
+	</div>
 </div>
+<div class="clear"></div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'dennysblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 			</div>			
 			<div id="sidebar">	
 	<div id="recent-posts" class="widget">

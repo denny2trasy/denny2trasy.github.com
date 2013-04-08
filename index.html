@@ -40,6 +40,80 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/git/git_study.html">Git学习纪录</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/git/index.html">git</a>
+			 &nbsp; 
+			at 2013-04-08 </span>
+			<span class="comments-link">
+			      <a href="/git/git_study.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<p>git也用了一段时间，可是其中的一些概念还是不清楚，于是抽空补习一下。</p>
+
+
+
+
+<p>几个基本概念</p>
+
+
+
+
+<ul>
+<li>working directory (working tree) 工作目录，保存当前正在工作的文件所在的目录</li>
+<li>stage (index) 索引，是工作目录和git库目录之间的暂存区</li>
+<li>git directory (history) ，所有历史提交的纪录</li>
+<li>branch 分支，指向某一个commit的提交</li>
+<li>HEAD, 指向当前分支</li>
+</ul>
+
+
+
+
+<hr />
+
+
+
+
+<p>几个命令</p>
+
+
+
+
+<ul>
+<li><p>diff，用于查看两次提交之间的变动。</p>
+
+<ul>
+<li><p>查看 stage 和 working directory之间的变动，命令 <code>git diff</code></p></li>
+<li><p>查看 当前branch 和 working directory之间的变动，命令<code>git diff HEAD</code></p></li>
+<li><p>查看 当前branch 和 staging之间的变动，命令<code>git diff --cached</code></p></li>
+<li><p>查看 某分支maint 和 working directory之间的变动，命令<code>git diff maint</code></p></li>
+<li><p>查看 提交b325c 和 提交 da985之间的变动，命令<code>git diff da985 b325c</code></p></li>
+</ul>
+</li>
+<li><p>commit, 在git history中，创建一个新的提交，并把此时的节点设为父节点，然后把当前分支指向新的提交节点，主要任务<em>创建提交</em></p></li>
+<li><p>checkout,用于从历史提交（暂存区域）中拷贝文件到工作目录，也可以用于切换分支（即移动HEAD），主要任务<em>拷贝文件</em>, <em>移动</em>HEAD_</p></li>
+<li><p>reset, 把当前分支指向另一个位置，并且有选择的变动工作目录和索引。也用来从历史仓库中复制文件到索引，而不动工作目录。主要任务<em>移动分支</em></p></li>
+<li><p>merge,把不同分支合并起来，合并前，索引必须和当前提交相同。主要任务<em>合并分支</em></p></li>
+<li><p>rebase,合并命令的另一种选择，在当前分支上重演另一个分支的历史，提交历史是线性的。主要任务<em>提交历史线性</em></p></li>
+</ul>
+
+
+
+
+<p>具体参考<a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html">图解Git</a></p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/ico/ico_study.html">ico图标学习纪录</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -317,137 +391,6 @@ October 13,1975
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/Drupal/drupal_show_list.html">Drupal实现节点列表菜单</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/Drupal/index.html">Drupal</a>
-			 &nbsp; 
-			at 2013-03-18 </span>
-			<span class="comments-link">
-			      <a href="/Drupal/drupal_show_list.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<p>Drupal有搜索功能，只要在搜索表单中输入条件，点击搜索就可以得到结果列表页面。可是在开发网站的过程中，难免会有这样的需求，一个菜单或者连接实现一个查询。最近在建立<a href="http://www.asischia.com">Asischina</a>这个网站的时候，就需要实现这个菜单。</p>
-
-
-
-
-<p>具体需求，这个网站中，有一个Node Type是News的节点，想通过/asischina/list/news来得到所有的News列表，并希望结果页面有分页功能。</p>
-
-
-
-
-<p>起初我觉得这个功能不复杂，肯定有Module实现了它，于是就去<a href="http://www.drupal.org">Drupal</a>官方搜索，结果是令人失望的，两天都没有找到合适的Module。</p>
-
-
-
-
-<p>于是决定自己写个Module实现这个菜单。</p>
-
-
-
-
-<ul>
-<li><p>定义菜单项,实现hook_menu函数</p>
-
-<pre><code>$items['asischina/list/%'] = array(
-  'title' =&gt; 'Content Type list',
-  'page callback' =&gt; 'asischina_list_for_content_type_page',
-  'page arguments' =&gt; array(2),
-  'access callback' =&gt; TRUE, //array('access content'),
-  'type' =&gt; MENU_CALLBACK,
-);
-return $items;
-</code></pre></li>
-<li><p>实现查询功能，asischina_list_for_content_type_page($content_type)</p>
-
-<pre><code>$query = 'SELECT nid FROM {node} where type = "'. $content_type .'" ORDER BY nid desc ';
-
-$count_query = "SELECT COUNT(*) FROM (" . $query . ") AS count_query";
-
-$result = pager_query($query, 10, 0, $count_query);
-
-$output = "";
-
-while ($item = db_fetch_object($result)) {        
-  // Build the node body.
-  $node = node_load($item-&gt;nid);
-  $output .= node_view($node,true);
-}
-
-$output .= theme('pager', NULL, 10, 0);
-
-return $output;
-</code></pre></li>
-</ul>
-
-
-
-
-<p>最终代码虽然简单，过程可是很曲折的。</p>
-
-
-
-
-<p>首先，定义菜单项，需要注意page argements与通配符的对应关系，本例中，array(2)对应通配符。</p>
-
-
-
-
-<p>asischina  -- array(0)
-list -- array(1)
-% -- array[2]</p>
-
-
-
-
-<p>再次，pager_query函数实现分页查询</p>
-
-
-
-
-<p>然后， node_view实现node正确显示，按列表结果展示，不是按full page展示节点</p>
-
-
-
-
-<p>最后， theme('pager',Null,10,0)展示页面中的分页器</p>
-
-
-
-
-<p>纪录这些学习过程。</p>
-
-
-
-
-<hr />
-
-
-
-
-<p><em>问：github如何得到除master以外的分支</em></p>
-
-
-
-
-<p><em>答：第一次clone下来都是master,用如下语句可以得到其他分支</em></p>
-
-
-
-
-<p><code>git checkout -b xxx origin/xxx</code></p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -461,6 +404,8 @@ list -- array(1)
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/git/git_study.html">Git学习纪录</a></strong></li>
 			
 				<li><strong><a href="/ico/ico_study.html">ico图标学习纪录</a></strong></li>
 			
@@ -495,10 +440,10 @@ list -- array(1)
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/git/index.html"><strong>git (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2013/4/index.html"><strong>2013/4 (1 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 
@@ -527,6 +472,14 @@ list -- array(1)
         s.type = 'text/javascript';
         s.src = '//' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    
+		
+</body>
+
+
+</html>yTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
     </script>
     
