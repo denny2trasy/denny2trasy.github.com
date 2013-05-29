@@ -40,6 +40,205 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/Google/add_google_marked_map.html">如何在网站中添加有城市标记的Google地图</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/Google/index.html">Google</a>
+			 &nbsp; 
+			at 2013-03-14 </span>
+			<span class="comments-link">
+			      <a href="/Google/add_google_marked_map.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<p>好多网站都会有这样的需求，展示一个地图，上面标记出一些地名或者城市。如下图所示。</p>
+
+
+
+
+<p><img src="/images/map.png" alt="map_id" /></p>
+
+
+
+
+<p>众所周知，Google和baidu都提供了地图服务，象上述这个小功能肯定提供了API来实现。本人没有开发过GIS，上网搜索后，找到了一个解决办法，纪录之，已供学习用。<a href="https://developers.google.com/maps/articles/v2tov3?hl=en">参考</a></p>
+
+
+
+
+<ul>
+<li>首先在Html的<head>标记中添加如下语句</li>
+</ul>
+
+
+
+
+<p><code>&lt;script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;key=Your_API_Key" type="text/javascript"&gt;&lt;/script&gt;</code></p>
+
+
+
+
+<ul>
+<li><p>然后添加初始化地图的js函数initialize()</p>
+
+<pre><code>var map = new google.maps.Map(
+  document.getElementById('map_canvas'), {
+    center: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+    zoom: 11,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+
+var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(39.943096343663754,116.4474801854858),
+      map: map
+});
+
+var marker1 = new google.maps.Marker({
+      position: new google.maps.LatLng(39.99855,116.470013),
+      map: map
+});
+</code></pre>
+
+<p>  <code>google.maps.event.addDomListener(window, 'load', initialize);</code></p></li>
+<li><p>接下来，在页面中添加map的div，代码如下</p></li>
+</ul>
+
+
+
+
+<p><code>&lt;div id="map_canvas"&gt;&lt;/div&gt;</code></p>
+
+
+
+
+<p>这样就可以在网页中看到有标志的Google地图了。</p>
+
+
+
+
+<p>那么如何得到某个城市或者地方的准确经纬度呢？可以访问这个网址，输入地名，就可以得到对应的经纬度。</p>
+
+
+
+
+<p><a href="http://www.gpsspg.com/maps.htm">http://www.gpsspg.com/maps.htm</a></p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="/TechExper/update_my_website_2.html">我的建站经历(续)</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/TechExper/index.html">TechExper</a>
+			 &nbsp; 
+			at 2013-03-11 </span>
+			<span class="comments-link">
+			      <a href="/TechExper/update_my_website_2.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h2>第四天</h2>
+
+
+
+
+<p><strong>网站功能</strong></p>
+
+
+
+
+<p>博客不用太复杂，能发文章，评论即可，文章可以按类别和时间归类就行。</p>
+
+
+
+
+<p>Jekyll提供了基本的Post维护，虽然说有category，tag等标记功能，但是文章的归档就没有。幸好它提供plugin，自己能够实现想要的功能。</p>
+
+
+
+
+<p>对于一篇Post文章，其中包含两类数据：</p>
+
+
+
+
+<ul>
+<li><p>YAML Front Matter标记：记录文章的属性，例如layout，title，category，以及任何自己想定义的属性，这些标记都会被Liquid templating engine解析，并且记录到data数据中，等到render这些页面的时候，用Liquid标记来获得这些数据，展示在新生成的页面中。<a href="https://github.com/mojombo/jekyll/wiki/template-data">参考</a></p></li>
+<li><p>Liquid标记：两种语法，一是显示数据，二是操作数据。<a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">参考</a></p></li>
+</ul>
+
+
+
+
+<p>有了如上的知识，可以发表自己的post，可是如果想让文章归类显示，在首页中弄个category list块，还是需要plugin的帮助。</p>
+
+
+
+
+<p>起初想自己按照<a href="https://github.com/mojombo/jekyll/wiki/Plugins">说明</a>实现categary和archive的文章生成功能和categary_list列表块。可是不知道什么原因，generate总是不执行，无法生成页面，而且还找不到好的调试手段。
+改变策略，直接把现成的plugin copy过来还是无法生成，最后翻看文档才明白，我在<em>config配置文件中，把safe设置为true，这样所有的</em>plugins都被屏蔽。</p>
+
+
+
+
+<p>算是搞定一个问题，继续中…</p>
+
+
+
+
+<h2>第五天</h2>
+
+
+
+
+<p>优化layout，使用include，layout可以嵌套，layout中大量使用Liquid标记。</p>
+
+
+
+
+<h2>第六天</h2>
+
+
+
+
+<p>完善plugin，给网站添加<a href="http://www.disqus.com">comment</a>功能。</p>
+
+
+
+
+<h2>第七天</h2>
+
+
+
+
+<p>学习<a href="http://wowubuntu.com/markdown/">markdown</a>语法，部署代码</p>
+
+
+
+
+<p>github page不支持unsafe plugin， 所以我自己写的plugin在page上无法执行，刚碰到这个问题时，让我很是疑惑，在本地一点问题都没有，怎么放上去就是没有效果，最后才找到，page的config文件中safe默认是打开的。
+为了解决这个问题，github提供了两种方案，<a href="https://help.github.com/articles/pages-don-t-build-unable-to-run-jekyll">参见</a>，思来想去，我还是觉得采取第一种方案比较简单。</p>
+
+
+
+
+<p>至此，我的博客重新搞定，坚持写下去是目前的首要任务，这个建站过程就是新开篇吧！</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/TechExper/update_my_website.html">我的建站经历</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -234,132 +433,6 @@
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/English/english_breakfast.html">English Breakfast</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/English/index.html">English</a>
-			 &nbsp; 
-			at 2011-09-21 </span>
-			<span class="comments-link">
-			      <a href="/English/english_breakfast.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<h2>Topic: Breakfast</h2>
-
-
-
-
-<p>What do you want for Breakfast?
-What did you have for Breakfast?</p>
-
-
-
-
-<p>I had <strong>something</strong> for breakfast.
-I will have <strong>something</strong> for breakfast.</p>
-
-
-
-
-<p>You can also use this for Lunch, dinner or a snack.</p>
-
-
-
-
-<p>Like….</p>
-
-
-
-
-<p>I had ice cream for a snack.</p>
-
-
-
-
-<p>Rice, noodles, dumplings, McDonalds.</p>
-
-
-
-
-<p>Add oil!</p>
-
-
-
-
-<h2>Topic:  Kent comes to visit</h2>
-
-
-
-
-<p>Questions:</p>
-
-
-
-
-<p>Good morning.</p>
-
-
-
-
-<p>How was your flight?
-How was your trip over?
-How was the traffic?
-How is your family?
-How are your children?</p>
-
-
-
-
-<p>Answers:
-If he asks you how work is going, you can say:
-Everything is going great!
-Everything is going smooth.</p>
-
-
-
-
-<p>Word of the day:  smooth.</p>
-
-
-
-
-<p>Add oil!!!!</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/English/what-is-that.html">What is that</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/English/index.html">English</a>
-			 &nbsp; 
-			at 2011-08-24 </span>
-			<span class="comments-link">
-			      <a href="/English/what-is-that.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<p>I cannot remember that, please forgive me!</p>
-
-
-<p>why I cannot get liguande.com</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -379,6 +452,10 @@ Everything is going smooth.</p>
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/Code/three_small_story.html">开发小记三则</a></strong></li>
+			
+				<li><strong><a href="/TextMate/textmate_general_cmd.html">TextMate常用快捷键</a></strong></li>
 			
 				<li><strong><a href="/git/git_study.html">Git学习纪录</a></strong></li>
 			
@@ -415,10 +492,10 @@ Everything is going smooth.</p>
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/git/index.html"><strong>git (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Code/index.html"><strong>Code (1)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/git/index.html"><strong>git (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/TextMate/index.html"><strong>TextMate (1)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2013/4/index.html"><strong>2013/4 (1 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2013/4/index.html"><strong>2013/4 (2 posts)</strong></a></li><li><a href="/archives/2013/5/index.html"><strong>2013/5 (1 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 

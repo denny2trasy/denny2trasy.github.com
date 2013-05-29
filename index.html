@@ -40,6 +40,121 @@
 				
 	<div class="post">
 	<div class="post-head">
+		<h2 class="post-title"><a href="/Code/three_small_story.html">开发小记三则</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/Code/index.html">Code</a>
+			 &nbsp; 
+			at 2013-05-29 </span>
+			<span class="comments-link">
+			      <a href="/Code/three_small_story.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<h1>和人交流，容易产生新想法</h1>
+
+
+
+
+<p>最近有一个问题一直困扰着我，如何让jwplayer显示正在播放文件的信息。</p>
+
+
+
+
+<p>背景： jwplayer播放smtp流，此流由第三方提供，依次按照list播放。</p>
+
+
+
+
+<p>目的： 当jwplayer播放某个视频文件时，显示对应的文件信息。</p>
+
+
+
+
+<p>解决过程：</p>
+
+
+
+
+<ul>
+<li><p>最先想到的就是jwplayer的playlist参数，此参数记录jwplayer播放的文件或者文件列表以及文件的详细信息，这个文件可以是xml文件，也可以是其他格式。于是google上狂搜jwplayer playlist smtp, 都没有得到完美的答案，要么是介绍playlist的使用，要么是介绍smtp流的使用，把二者集合到一起的也需要smtp server和playlist在同一台服务器，对于本人，smtp server上不可能放置playlist。就这个结论花了两天的时间。</p></li>
+<li><p>无奈，只好求助朋友，给7打电话，讨论这个问题，和他的讨论让我思路清晰。目前只能在自己的服务器解析playlist并显示。可是什么时候显示呢？浏览器什么时候请求数据？还是服务器不断的推送数据？另外还有可能有一种不同步的问题，来自自己服务的列表，和第三方服务器的列表不同步。</p></li>
+<li><p>最终用了js的setTimeout方法，在第一次请求时，得到下一次请求的时间，用setTimeout来设置定时任务，让请求循环下去。</p></li>
+</ul>
+
+
+
+
+<h1>张弛有度，效果更佳</h1>
+
+
+
+
+<p>为了找到一个关于点击图片实现放大显示的js代码，花了一天的时间还是没有满意的结果，最后只好搁置。第二天早晨接着做这件事，没想到半个小时搞定。也许是量变到质变，也许是休息了一晚脑子开动了。</p>
+
+
+
+
+<p>总之，如果技术上的事，如果超过半天还没有合适的方案，要么和别人讨论，要么休息调整一下思路。</p>
+
+
+
+
+<h1>持续改进</h1>
+
+
+
+
+<p>首先让代码完成任务，三分钟后，优化代码，真的controller中method的代码不宜超过3行。</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
+		<h2 class="post-title"><a href="/TextMate/textmate_general_cmd.html">TextMate常用快捷键</a></h2>
+		<div class="meta">
+			<span class="alt-font">Posted in &nbsp; 
+			
+				<a href="/categories/TextMate/index.html">TextMate</a>
+			 &nbsp; 
+			at 2013-04-09 </span>
+			<span class="comments-link">
+			      <a href="/TextMate/textmate_general_cmd.html#disqus_thread"></a>
+			</span>
+		</div>
+	</div>
+	<div class="entry">
+		<p>control + W  ==  选定词
+control + A  ==  光标移到行首
+control + E  ==  光标移到行尾</p>
+
+
+
+
+<p>command + E  ==  把当前选中的词作为搜索的词
+command + F  ==  在当前文档中搜索单词
+command + shift + F ==  在当前工程中搜索单词
+command + G  ==  搜索下一个
+command + shift + G == 搜索上一个</p>
+
+
+
+
+<p>command + T  ==  GO to File
+command + L  ==  GO to Line</p>
+
+
+	</div>
+</div>
+<div class="clear"></div>	
+
+	<div class="post">
+	<div class="post-head">
 		<h2 class="post-title"><a href="/git/git_study.html">Git学习纪录</a></h2>
 		<div class="meta">
 			<span class="alt-font">Posted in &nbsp; 
@@ -112,285 +227,6 @@
 </div>
 <div class="clear"></div>	
 
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/ico/ico_study.html">ico图标学习纪录</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/ico/index.html">ico</a>
-			 &nbsp; 
-			at 2013-03-26 </span>
-			<span class="comments-link">
-			      <a href="/ico/ico_study.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<p>开发的网站也不少，可是对于favicon.ico文件还是不怎么了解，每次要生成这个文件都是上网搜索教材，一直没有很好的学习和总结。今天就特地学习，并把笔记记下来，方便以后查阅。</p>
-
-
-
-
-<p>从三个问题着手来学习，</p>
-
-
-
-
-<p>1.ico是什么文件？</p>
-
-
-
-
-<p>ico是Icon file的缩写，是Windows的图标文件格式的一种，可以存储单个图案、多尺寸、多色板的图标文件。</p>
-
-
-
-
-<p>2.有什么用途？</p>
-
-
-
-
-<p>一般所说的ico图标是作为浏览器首段图标显示，还可以在收藏夹内收藏内容的前段显示小图标。</p>
-
-
-
-
-<p>3.怎么制作？</p>
-
-
-
-
-<p>有好多在线制作的网站，本人找了几个，方便以后用。</p>
-
-
-
-
-<p><a href="http://www.favicon.cc/">网站1</a>, 还有一篇介绍ico的文章，<a href="http://www.tianliang.org/644976/">参见</a>;
-<a href="http://www.bitbug.net">网站2</a>;
-<a href="http://www1.tc711.com/ICO/">网站3</a>;
-<a href="http://www.zzsky.cn/tool/ico/">网站4</a>;</p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
-	<div class="post">
-	<div class="post-head">
-		<h2 class="post-title"><a href="/IE/windows-ie-issue.html">IE特殊处理三则</a></h2>
-		<div class="meta">
-			<span class="alt-font">Posted in &nbsp; 
-			
-				<a href="/categories/IE/index.html">IE</a>
-			 &nbsp; 
-			at 2013-03-20 </span>
-			<span class="comments-link">
-			      <a href="/IE/windows-ie-issue.html#disqus_thread"></a>
-			</span>
-		</div>
-	</div>
-	<div class="entry">
-		<p>做过前台开发的人员，或多或少都会碰到IE的兼容问题。</p>
-
-
-
-
-<p>最近在给<a href="http://www.hupo.tv">琥珀网</a>做首页的时候，也碰到了IE显示问题。主要有三个问题：</p>
-
-
-
-
-<ul>
-<li>节目表单无法正确显示</li>
-<li>IE7下，首页的jwplayer位置不正确</li>
-<li>首页中，各频道图片之间的间距显示不正确</li>
-</ul>
-
-
-
-
-<p>有问题不可怕，可怕的是找不到问题所在，以及没有跟踪的办法。</p>
-
-
-
-
-<hr />
-
-
-
-
-<p>琥珀网中的节目表单使用一个叫<a href="http://almende.github.com/chap-links-library/">CHAP Links Library</a>的timeline插件实现json数据动态加载。这个功能在FF，Chrome，Safari中都能正确工作，只有在IE中，无法显示节目单。</p>
-
-
-
-
-<p>起初我一点头绪都没有，只要在js代码中增加alert语句来调试，唯一得到的就是代码可以正确的执行，就是结果不显示。</p>
-
-
-
-
-<p>只好在IE的开发人员工具F12的帮助下，给js代码设置断点，搜索问题。</p>
-
-
-
-
-<p>在timeline.js的draw方法中'this.setData(data)'设置一个断点，查看一下data数据，果然在这里发现问题，data数据中所有的日期字段都是"Undefined"。回到Chrome中查询对应的数据，发现这些日期都没有问题。</p>
-
-
-
-
-<pre><code>links.Timeline.prototype.draw = function(data, options) {
-  this.setOptions(options);
-
-   // read the data
-   this.setData(data);
-
-   // set timer range. this will also redraw the timeline
-   if (options &amp;&amp; (options.start || options.end)) {
-       this.setVisibleChartRange(options.start, options.end);
-   }
-   else if (this.firstDraw) {
-       this.setVisibleChartRangeAuto();
-   }
-
-   this.firstDraw = false;
-};
-</code></pre>
-
-
-
-
-<p>这些日期数据都是ruby传给js的，形式如，str = 'Wed Mar 20 16:05:05 +0800 2013'，然后把这个字符串传递给js的Date函数。</p>
-
-
-
-
-<pre><code>var time = new Date(str);  
-// str ='Wed Mar 20 16:05:05 +0800 2013'
-</code></pre>
-
-
-
-
-<p>上面的这句话在Chrome，FF，Safari中都能正确的生成JS下的日期，只有IE下无法实现。为了搞清楚，特意google一下JS中Date的构造函数，<a href="http://www.w3schools.com/jsref/jsref_obj_date.asp">参见</a></p>
-
-
-
-
-<p>原来JS中，Date对象的定义有如下几种形式：</p>
-
-
-
-
-<pre><code>var d = new Date();
-
-var d = new Date(milliseconds);
-
-var d = new Date(dateString);
-
-var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
-</code></pre>
-
-
-
-
-<p>其中dateString,只支持如下几种形式，当然不局限于如下形式：</p>
-
-
-
-
-<pre><code>October 13,1975 11:13:00
-
-October 13,1975 11:13
-
-October 13,1975
-
-2010-06-09 15:20:00
-
-2010-06-09 15:20
-
-2010-06-09
-
-2010-06
-
-2010
-</code></pre>
-
-
-
-
-<p>对于IE来说，上面的'Wed Mar 20 16:05:05 +0800 2013'这种形式是不支持的，所以改为Date(milliseconds)，问题就迎刃而解。</p>
-
-
-
-
-<hr />
-
-
-
-
-<p>关于jwplayer位置不正确的问题，首先了解，jwplayer.setup("div_id")的方法，会生成如下代码：</p>
-
-
-
-
-<p>原代码</p>
-
-
-
-
-<pre><code>&lt;div id="div_id"&gt;jwplayer&lt;/div&gt;
-</code></pre>
-
-
-
-
-<p>新代码</p>
-
-
-
-
-<pre><code>&lt;div id='div_id_wrapper'&gt;&lt;object id='div_id'&gt;...&lt;/object&gt;&lt;/div&gt;
-</code></pre>
-
-
-
-
-<p>所以在写css的时候，可以通过设置div_id_wrapper这个div样式来实现想要的效果。</p>
-
-
-
-
-<p>本例中，还涉及到position:relative在IE7下不工作的问题。具体解决方案，<a href="http://snook.ca/archives/html_and_css/position_relative_overflow_ie/">参见</a>，解释的很清楚。</p>
-
-
-
-
-<hr />
-
-
-
-
-<p>关于第三个问题，没有修改任何css代码，只是在网页的头部添加了&lt;!DOCTYPE> transitional DTD。</p>
-
-
-
-
-<pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
-</code></pre>
-
-
-
-
-<p>具体<a href="http://www.w3school.com.cn/tags/tag_doctype.asp">参见</a></p>
-
-
-	</div>
-</div>
-<div class="clear"></div>	
-
 
 
 <div class="navigation">
@@ -404,6 +240,10 @@ October 13,1975
 	<div id="recent-posts" class="widget">
 		<h2>Recent Posts</h2>		
 		<ul>
+			
+				<li><strong><a href="/Code/three_small_story.html">开发小记三则</a></strong></li>
+			
+				<li><strong><a href="/TextMate/textmate_general_cmd.html">TextMate常用快捷键</a></strong></li>
 			
 				<li><strong><a href="/git/git_study.html">Git学习纪录</a></strong></li>
 			
@@ -440,10 +280,10 @@ October 13,1975
 		</ul>
 	</div>
 	<div id="categories" class="widget">
-		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/git/index.html"><strong>git (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
+		 <h2>Categories</h2><ul><li><a href="/categories/Drupal/index.html"><strong>Drupal (1)</strong></a></li><li><a href="/categories/Study/index.html"><strong>Study (1)</strong></a></li><li><a href="/categories/TechExper/index.html"><strong>TechExper (2)</strong></a></li><li><a href="/categories/Code/index.html"><strong>Code (1)</strong></a></li><li><a href="/categories/Erlang/index.html"><strong>Erlang (2)</strong></a></li><li><a href="/categories/IE/index.html"><strong>IE (1)</strong></a></li><li><a href="/categories/git/index.html"><strong>git (1)</strong></a></li><li><a href="/categories/Google/index.html"><strong>Google (1)</strong></a></li><li><a href="/categories/English/index.html"><strong>English (5)</strong></a></li><li><a href="/categories/TextMate/index.html"><strong>TextMate (1)</strong></a></li><li><a href="/categories/ico/index.html"><strong>ico (1)</strong></a></li></ul>
 	</div>
 	<div id="archives" class="widget">
-		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2013/4/index.html"><strong>2013/4 (1 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
+		<h2>Archives</h2><ul><li><a href="/archives/2011/3/index.html"><strong>2011/3 (5 posts)</strong></a></li><li><a href="/archives/2013/3/index.html"><strong>2013/3 (6 posts)</strong></a></li><li><a href="/archives/2011/5/index.html"><strong>2011/5 (2 posts)</strong></a></li><li><a href="/archives/2013/4/index.html"><strong>2013/4 (2 posts)</strong></a></li><li><a href="/archives/2013/5/index.html"><strong>2013/5 (1 posts)</strong></a></li><li><a href="/archives/2011/8/index.html"><strong>2011/8 (1 posts)</strong></a></li><li><a href="/archives/2011/9/index.html"><strong>2011/9 (1 posts)</strong></a></li></ul>
 	</div>					
 </div>
 
